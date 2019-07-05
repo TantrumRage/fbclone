@@ -51,7 +51,7 @@
         @else
           
           <li class="nav-item custom-nav-items-md">
-            <a class="nav-link text-center" href="#">{{ Auth::user()->name }}</a>
+            <a class="nav-link text-center" href="#">{{ Auth::user()->fname }}</a>
           </li>
 
           <li class="nav-item d-sm-none d-md-block custom-nav-items-md">
