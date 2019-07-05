@@ -1,0 +1,27 @@
+.small-nav{
+	height: 42px;
+}
+#nav-search-container{
+	width: 300px;
+}
+#nav-search-bar{
+	max-width: 300px;
+}
+#nav-search-bar, #nav-search-btn{
+	height: 30px;
+	border-radius: 0 !important;
+}
+#nav-search-btn{
+	line-height: 1;
+	max-width: 50px;
+}
+.custom-nav-items-sm{
+	list-style-type: none;
+	font-size: 20px;
+}
+
+.custom-nav-items-md{
+	font-size: 18px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
