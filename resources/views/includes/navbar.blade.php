@@ -54,23 +54,23 @@
             <a class="nav-link text-center" href="#">{{ Auth::user()->fname }}</a>
           </li>
 
-          <li class="nav-item d-sm-none d-md-block custom-nav-items-md">
+          <li class="nav-item d-none d-md-block custom-nav-items-md">
             <a class="nav-link text-center" href="#">Home</a>
           </li>
 
-          <li class="nav-item d-sm-none d-md-block custom-nav-items-md">
+          <li class="nav-item d-none d-md-block custom-nav-items-md">
             <a class="nav-link text-center" href="#"><i class="fas fa-user-friends"></i></a>
           </li>
 
-          <li class="nav-item d-sm-none d-md-block custom-nav-items-md">
+          <li class="nav-item d-none d-md-block custom-nav-items-md">
             <a class="nav-link text-center" href="#"><i class="fab fa-facebook-messenger"></i></a>
           </li>
 
-          <li class="nav-item d-sm-none d-md-block custom-nav-items-md">
+          <li class="nav-item d-none d-md-block custom-nav-items-md">
             <a class="nav-link text-center" href="#"><i class="fas fa-bell"></i></a>
           </li>
 
-          <li class="nav-item dropdown d-sm-none d-md-block custom-nav-items-md">
+          <li class="nav-item dropdown d-none d-md-block custom-nav-items-md">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                <span class="caret"></span>
             </a>
