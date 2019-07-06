@@ -2,7 +2,11 @@
   <a class="navbar-brand d-none d-md-block" href="{{ url('/') }}">
     {{ config('app.name', 'Laravel') }}
   </a>  
-
+@guest
+  <a class="navbar-brand d-block d-md-none p-2" href="{{ url('/') }}">
+    {{ config('app.name', 'Laravel') }}
+  </a> 
+@else
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
     <a class="nav-link text-center text-light w-100" href="#"><i class="fas fa-home"></i></a>
   </li>
@@ -22,7 +26,8 @@
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
     <a class="nav-link text-center text-light w-100" href="#"><i class="fas fa-search"></i></a>
   </li>
-
+@endguest
+  
     <button class="navbar-toggler col-2 border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
