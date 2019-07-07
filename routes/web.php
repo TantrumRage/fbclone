@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->middleware('auth');
-
 Auth::routes();
 
+/****************** PAGES *******************/
+Route::get('/', "PagesController@index")->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+/****************** POSTS *******************/
+Route::post('/post/save', "PostsController@save")->name('new post')->middleware('auth');

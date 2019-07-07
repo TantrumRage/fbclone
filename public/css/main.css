@@ -41,3 +41,7 @@
 .login-signup{
 	background: #00000082 !important;
 }
+
+#post-submit-loader{
+	display: none !important;
+}
