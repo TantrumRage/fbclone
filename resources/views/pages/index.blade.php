@@ -19,24 +19,28 @@
             </div>
 
             <div class="row justify-content-left">
-                <div class="col-12">
-                    <div class="card bg-dark border-light p-2">
-                        <div class="card-header border-bottom-0 border-light"><strong>Allan Walker</strong></div>
-                        <div class="card-body border-light">
-                            This is my first post HAHA!
-                        </div>
-                        <div class="card-footer border-light">
-                            <div class="row">
-                                <div class="col-4 text-center p-0"><i class="fas fa-thumbs-up"></i> Like</div>
-                                <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>
-                                <div class="col-4 text-center p-0"><i class="fas fa-share"></i> Share</div>
+                @foreach(App\Post::where('user_id', auth()->user()->id)->get() as $post)
+                    <div class="col-12">
+                        <div class="card bg-dark border-light p-2">
+                            <div class="card-header border-bottom-0 border-light"><strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong></div>
+                            <div class="card-body border-light">
+                                {{$post->body}}
+                            </div>
+                            <div class="card-footer border-light">
+                                <div class="row">
+                                    <div class="col-4 text-center p-0"><i class="fas fa-thumbs-up"></i> Like</div>
+                                    <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>
+                                    <div class="col-4 text-center p-0"><i class="fas fa-share"></i> Share</div>
+                                </div>
+                            </div>
+                            <div class="card-footer border-light">
+                                <input class="form-control bg-dark" type="text" name="comment" placeholder="Type a comment...">
                             </div>
                         </div>
-                        <div class="card-footer border-light">
-                            <input class="form-control bg-dark" type="text" name="comment" placeholder="Type a comment...">
-                        </div>
-                    </div>
-                </div>
+                    </div> 
+                @endforeach
+
+                
             </div>
         </div>
 
