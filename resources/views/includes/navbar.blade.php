@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-md-5 pr-md-5 pl-0 pr-0">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-md-5 pr-md-5 pl-0 pr-0 border-bottom">
   <a class="navbar-brand d-none d-md-block" href="{{ url('/') }}">
     {{ config('app.name', 'Laravel') }}
   </a>  
 @guest
   <a class="navbar-brand d-block d-md-none p-2" href="{{ url('/') }}">
     {{ config('app.name', 'Laravel') }}
-  </a> 
+  </a>
 @else
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
-    <a class="nav-link text-center text-light w-100" href="#"><i class="fas fa-home"></i></a>
+    <a class="nav-link text-center text-light w-100" href="{{ url('/') }}"><i class="fas fa-home"></i></a>
   </li>
 
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
