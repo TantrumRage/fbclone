@@ -22,7 +22,17 @@
                 @foreach(App\Post::where('user_id', auth()->user()->id)->get() as $post)
                     <div class="col-12 mb-5">
                         <div class="card bg-dark border-light p-2">
-                            <div class="card-header border-bottom-0 border-light"><strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong></div>
+                            <div class="card-header border-bottom-0 border-light">
+                                <strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong>
+                                <span id="post-option-{{$post->id}}" class="btn float-right post-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <span class="caret"></span>
+                                </span>
+                                <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="post-option-{{$post->id}}">
+                                  <span class="dropdown-item btn text-light bg-dark" onclick="showEditPost({{$post->id}})">Edit
+                                  </span>
+                                </div>
+                            </div>
                             <div class="card-body border-light">
                                 {{$post->body}}
                             </div>

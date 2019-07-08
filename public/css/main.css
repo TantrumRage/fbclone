@@ -49,3 +49,24 @@
 #post-submit-loader{
 	display: none !important;
 }
+
+#edit-post-overlay{
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #000000cc;
+	display: flex;
+}
+#edit-post-container{
+	max-height: fit-content !important;
+	margin: auto;
+}
+.post-options{
+	line-height: 1 !important;
+	color: #fff !important;
+	padding: 0 !important;
+}

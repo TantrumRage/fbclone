@@ -12,4 +12,14 @@ class PostsController extends Controller
     	$post->body = $request->input('body');
     	$post->save();
     }
+
+    public function edit(Request $request) {
+    	return Post::find($request->input('id'));
+    }
+
+    public function update(Request $request) {
+    	$post = Post::find($request->input('id'));
+    	$post->body = $request->input('body');
+    	$post->save();
+    }
 }
