@@ -43,3 +43,15 @@ function updatePost(postId) {
 function hideEditPost(){
 	$("#edit-post-overlay").remove();
 }
+
+function deletePost(postId) {
+	axios.post('/post/delete', {
+	    id: postId,
+	  })
+	  .then(function (response) {
+	  	alert("Post deleted successfully");
+	  })
+	  .catch(function (error) {
+	    alert('Delete post failed! Please try again later.');
+	  });
+}

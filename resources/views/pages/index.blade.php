@@ -31,6 +31,8 @@
                                 <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="post-option-{{$post->id}}">
                                   <span class="dropdown-item btn text-light bg-dark" onclick="showEditPost({{$post->id}})">Edit
                                   </span>
+                                  <span class="dropdown-item btn text-light bg-dark" onclick="deletePost({{$post->id}})">Delete
+                                  </span>
                                 </div>
                             </div>
                             <div class="card-body border-light">

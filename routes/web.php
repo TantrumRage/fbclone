@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/post/save', "PostsController@save")->name('new post')->middleware('auth');
 Route::post('/post/edit', "PostsController@edit")->name('edit post')->middleware('auth');
 Route::post('/post/update', "PostsController@update")->name('update post')->middleware('auth');
+Route::post('/post/delete', "PostsController@delete")->name('delete post')->middleware('auth');

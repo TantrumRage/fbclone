@@ -22,4 +22,9 @@ class PostsController extends Controller
     	$post->body = $request->input('body');
     	$post->save();
     }
+
+    public function delete(Request $request) {
+        $post = Post::find($request->input('id'));
+        $post->delete();
+    }
 }
