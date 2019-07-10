@@ -69,6 +69,7 @@ class RegisterController extends Controller
             'lname' => $data['lname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'username' => $data['fname'] . strtotime(date('Y-m-d')),
         ]);
     }
 }
