@@ -18,6 +18,10 @@ Route::get('/', "PagesController@index")->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/profile', 'PagesController@profile')->name('profile');
+
+/********************************************/
+
 /****************** POSTS *******************/
 Route::post('/post/save', "PostsController@save")->name('new post')->middleware('auth');
 Route::post('/post/edit', "PostsController@edit")->name('edit post')->middleware('auth');
