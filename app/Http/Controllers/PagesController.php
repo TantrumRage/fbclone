@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -10,7 +11,15 @@ class PagesController extends Controller
     	return view('pages.index');
     }
 
-    public function profile() {
-    	return view('pages.profile');
+    public function profile($username) {
+
+    	$user = User::where('username', $username)->first();
+
+    	if($user){
+    		return view('pages.profile')->with('user', $user);
+    	}else{
+    		return view('pages.usernotfound')->with('username', $username);
+    	}
+    	
     }
 }

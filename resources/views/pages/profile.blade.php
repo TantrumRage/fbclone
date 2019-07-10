@@ -4,6 +4,7 @@
 <div id="container" class="container-fluid bg-dark text-light">
     <div class="row justify-content-center pt-5">
         <div class="col-md-6 mt-5">
+            @if(auth()->user()->id === $user->id)
             <div class="card bg-dark border-light mb-4">
                 <div class="card-header border-light"><strong>Create Post</strong></div>
                 <div class="card-body border-light">
@@ -17,9 +18,10 @@
                     
                 </div>
             </div>
+            @endif
 
             <div class="row justify-content-left">
-                @foreach(App\Post::where('user_id', auth()->user()->id)->get() as $post)
+                @foreach(App\Post::where('user_id', $user->id)->get() as $post)
                     <div class="col-12 mb-5">
                         <div class="card bg-dark border-light p-2">
                             <div class="card-header border-bottom-0 border-light">
