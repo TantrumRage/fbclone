@@ -2,8 +2,85 @@
 
 @section('content')
 <div id="container" class="container-fluid bg-dark text-light">
-    <div class="row justify-content-center pt-5">
-        <div class="col-md-6 mt-5">
+    <div class="row pt-5">
+        <div class="col-12 mt-3" style="height: 75vh;">
+            <div id="cover-photo" class="row">
+                <div class="p-1 pl-4">
+                    <img id="profile-picture" src="../images/landing-page-img.jpg">
+                </div>
+                <div class="p-1">
+                    <p id="profile-name" class="p-2">
+                        <span class="h5 font-weight-bold">{{$user->fname . ' ' . $user->lname}}</span>
+                        <br>
+                        ( {{$user->username}} )
+                    </p>
+                </div>
+            </div>
+            <div class="row bg-secondary">
+                <div class="col-12">
+                    <div class="row justify-content-center text-center">
+                        <span class="p-2">
+                            <a class="btn text-light" href="{{$user->username}}">Timeline</a>
+                        </span>
+                       <span class="p-2">
+                            <a class="btn text-light" href="/{{$user->username}}/about">About</a>
+                       </span>
+                       <span class="p-2">
+                            <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>
+                            
+                       </span>
+                       <span class="p-2">
+                           <a class="btn text-light" href="/{{$user->username}}/about">Photos</a>
+                       </span>
+                   </div>
+               </div>
+           </div>
+       </div>     
+    </div>
+
+    <div class="row justify-content-center pt-1">
+
+        <div class="col-md-5 mt-3">
+            <div>
+               <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card bg-dark border-light">
+                            <div class="card-header border-light">Intro</div>
+                            <div class="card-body border-light">
+                                <p class="p-0 mb-0">Studied at CBSUA</p>
+                                <p class="p-0 mb-0">Lives in Libmanan</p>
+                                <p class="p-0 mb-0">From Sipocot, Camarines Sur</p>
+                                <p class="p-0 mb-0">Followed by 10 people</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card bg-dark border-light">
+                            <div class="card-header border-light">Photos</div>
+                            <div class="card-body border-light">
+                                <p class="text-center mb-0">No photos to show.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card bg-dark border-light">
+                            <div class="card-header border-light">Friends</div>
+                            <div class="card-body border-light">
+                                <p class="text-center mb-0">No friends to show.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 mt-3">
             @if(auth()->user()->id === $user->id)
             <div class="card bg-dark border-light mb-4">
                 <div class="card-header border-light"><strong>Create Post</strong></div>
@@ -20,9 +97,9 @@
             </div>
             @endif
 
-            <div class="row justify-content-left">
+            <div class="row justify-content-left" id="profile-posts">
                 @foreach(App\Post::where('user_id', $user->id)->get() as $post)
-                    <div class="col-12 mb-5">
+                    <div class="col-12 mb-3">
                         <div class="card bg-dark border-light p-2">
                             <div class="card-header border-bottom-0 border-light">
                                 <strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong>
@@ -58,16 +135,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 mt-5">
-            <div class="card bg-dark border-light">
-                <div class="card-header border-light">Online</div>
-                    <p class="text-right p-2 mb-0">Allan Walker</p>
-                    <p class="text-right p-2 mb-0">Minda Ryn</p>
-                <div class="card-body border-light">
-                    
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 @endsection

@@ -99,3 +99,34 @@
     height: 80vh;
     margin: 0;
 }
+#profile-posts{
+	height: 100vh;
+	overflow-y: auto;
+}
+#profile-posts::-webkit-scrollbar{
+	width: 0;
+}
+
+#cover-photo{
+	height: 70%;
+	background-image: url('../images/landing-page-img.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#profile-picture{
+	z-index: 2;
+	position: relative;
+	height: 150px;
+	width: 150px;
+	border-radius: 360px;
+	margin-top: 100%;
+	border: 3px solid #fff;
+}
+
+#profile-name{
+	margin-top: 100%;
+	background: #00000085;
+	position: relative;
+	height: fit-content;
+}
