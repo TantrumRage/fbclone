@@ -3,7 +3,7 @@
 @section('content')
 <div id="container" class="container-fluid bg-dark text-light">
     <div class="row pt-5">
-        <div class="col-12 mt-3" style="height: 75vh;">
+        <div id="profile-info-container" class="col-12 mt-3">
             <div id="cover-photo" class="row">
                 <div class="p-1 pl-4">
                     <img id="profile-picture" src="../images/landing-page-img.jpg">
@@ -40,7 +40,7 @@
 
     <div class="row justify-content-center pt-1">
 
-        <div class="col-md-5 mt-3">
+        <div class="col-md-4 mt-3">
             <div>
                <div class="row mb-3">
                     <div class="col-12">
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <div class="col-md-7 mt-3">
+        <div class="col-md-6 mt-3">
             @if(auth()->user()->id === $user->id)
             <div class="card bg-dark border-light mb-4">
                 <div class="card-header border-light"><strong>Create Post</strong></div>

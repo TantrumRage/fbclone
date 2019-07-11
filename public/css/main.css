@@ -130,3 +130,7 @@
 	position: relative;
 	height: fit-content;
 }
+
+#profile-info-container{
+	height: 75vh;
+}
