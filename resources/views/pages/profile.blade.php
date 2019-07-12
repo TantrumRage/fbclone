@@ -15,6 +15,14 @@
                         ( {{$user->username}} )
                     </p>
                 </div>
+                <div class="ml-auto pr-3">
+                    <div id="profile-options">
+                        <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
+                        <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
+                        <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                    </div>
+                    
+                </div>
             </div>
             <div class="row bg-secondary">
                 <div class="col-12">
