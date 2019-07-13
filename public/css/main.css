@@ -150,3 +150,7 @@
 	color: #000000bf;
 	border-color: #000000bf;
 }
+
+.profile-sections{
+	display: none;
+}

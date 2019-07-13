@@ -28,10 +28,10 @@
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
-                            <a class="btn text-light" href="{{$user->username}}">Timeline</a>
+                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
                         </span>
                        <span class="p-2">
-                            <a class="btn text-light" href="/{{$user->username}}/about">About</a>
+                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
                        </span>
                        <span class="p-2">
                             <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>

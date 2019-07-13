@@ -55,3 +55,17 @@ function deletePost(postId) {
 	    alert('Delete post failed! Please try again later.');
 	  });
 }
+
+// Show profile timeline without reloading the page
+function getProfileTimeline(user) {
+	window.history.replaceState({page: "timeline"}, "Timeline", "/" + user);
+	$(".profile-sections").hide();
+	$("#timeline").show();
+}
+
+// Show profile about without reloading the page
+function getProfileAbout(user) {
+	window.history.replaceState({page: "timeline"}, "Timeline", "/" + user + "/about");
+	$(".profile-sections").hide();
+	$("#about").show();
+}

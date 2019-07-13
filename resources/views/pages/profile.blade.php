@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div id="container" class="container-fluid bg-dark text-light">
     <div class="row pt-5">
         <div id="profile-info-container" class="col-12 mt-3">
@@ -28,10 +29,10 @@
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
-                            <a class="btn text-light" href="{{$user->username}}">Timeline</a>
+                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
                         </span>
                        <span class="p-2">
-                            <a class="btn text-light" href="/{{$user->username}}/about">About</a>
+                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
                        </span>
                        <span class="p-2">
                             <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>
@@ -46,7 +47,7 @@
        </div>     
     </div>
 
-    <div class="row justify-content-center pt-1">
+    <div id="timeline" style="display: none;" class="profile-sections row justify-content-center pt-1">
 
         <div class="col-md-4 mt-3">
             <div>
@@ -142,8 +143,130 @@
                 
             </div>
         </div>
+    </div>
 
-        
+    <div id="about" style="display: none;" class="profile-sections row justify-content-center pt-1">
+        <div class="col-md-10">
+            <div class="card text-dark border-0">
+                <div class="card-header">
+                    <span class="h4">About</span> 
+                </div>
+                <div class="card-body bg-dark">
+                    <div class="card mb-3">
+                        <div class="card-header font-weight-bold">
+                            Work and Education
+                        </div>
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Workplace
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->workplace}}
+                                </div>
+                            </div>
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Education
+                                </div>
+                                <div class="card-body">
+                                    Studied {{$user->profile->edu_degree}} at {{$user->profile->edu_school}}.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header font-weight-bold">
+                            Places Lived
+                        </div>
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Current City
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->current_city}}
+                                </div>
+                            </div>
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Hometown
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->hometown}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header font-weight-bold">
+                            Contact and Basic Info.
+                        </div>
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Phone
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->phone}}
+                                </div>
+                            </div>
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Email
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->email}}
+                                </div>
+                            </div>
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Birthday
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->birthday}}
+                                </div>
+                            </div>
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Gender
+                                </div>
+                                <div class="card-body">
+                                    {{$user->profile->gender}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header font-weight-bold">
+                            Others
+                        </div>
+                        <div class="card-body">
+                            <div class="card border-0">
+                                <div class="card-header font-weight-bold">
+                                    Nickname
+                                </div>
+                                <div class="card-body">
+                                    {{$user->username}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+    $("#container").ready(function() {
+        $(".profile-sections").hide();
+        $("#{{$section}}").show(); 
+    });
+    
+</script>
 @endsection

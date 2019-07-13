@@ -7,9 +7,9 @@ use App\User;
 
 class ProfilesController extends Controller
 {
-    public function about($username) {
+    public function getSection($username, $section) {
     	$user = User::where('username', $username)->first();
 
-    	return view('pages.profile.about')->with('user', $user);
+    	return view('pages.profile', compact('user', 'section'));
     }
 }

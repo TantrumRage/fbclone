@@ -14,11 +14,11 @@ class PagesController extends Controller
     public function profile($username) {
 
     	$user = User::where('username', $username)->first();
-
+        $section = 'timeline';
     	if($user){
-    		return view('pages.profile')->with('user', $user);
+    		return view('pages.profile', compact('user', 'section'));
     	}else{
-    		return view('pages.usernotfound')->with('username', $username);
+    		return view('pages.usernotfound', compact('username', 'section'));
     	}
     	
     }
