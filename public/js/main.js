@@ -1,3 +1,47 @@
+$(document).ready(function() {
+	$(".profile-info").mouseenter(function() {
+		$("#edit-" + this.id).show();
+	});
+	$(".profile-info").mouseleave(function() {
+		$("#edit-" + this.id).hide();
+	});
+	$(".edit-profile-section-btn").click(function() {
+		$("#" + this.id + "-section").show("slow");
+	});
+	$(".hide-edit-profile-section").click(function() {
+		var editSection = this.id;
+		editSection = editSection.slice(editSection.indexOf('-')+1, editSection.length);
+		$("#" + editSection).hide("slow");
+	});
+	$(".save-edit-profile").click(function() {
+		
+		var	category = $(this).data("category");
+
+		var parent = $($(this).parent()).parent().attr("id");
+		var dataInput = $("#" + parent).find('input');
+		var arrData = [];
+		
+		//console.log($(dataInput[0]).attr('id'));
+
+		for (var i = 0; i <= dataInput.length - 1; i++) {
+			var store = $(dataInput[i]).data("store");
+			arrData.push({'body': dataInput[i].value,'store': store});
+		}
+
+		axios.post('/profile/about/update', {
+		    data: arrData,
+		  })
+		  .then(function (response) {
+		    //$("#" + category + "-data").html($("#input-"+category).val());
+		    $("#edit-" + category + "-section").hide("slow");
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  });
+
+	});
+});
+
 function submitPost() {
 	$("#post-submit-loader").attr('style', 'display: inline-block !important');
 	var postBody = $("#post-body").val();

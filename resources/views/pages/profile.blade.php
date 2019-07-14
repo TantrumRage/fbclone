@@ -46,7 +46,11 @@
            </div>
        </div>     
     </div>
-
+    <!------
+    <div class="d-flex">
+        <div id="spinner" style="display: none;" class="spinner-border m-auto"></div>
+    </div>
+    ------->
     <div id="timeline" style="display: none;" class="profile-sections row justify-content-center pt-1">
 
         <div class="col-md-4 mt-3">
@@ -157,20 +161,59 @@
                             Work and Education
                         </div>
                         <div class="card-body">
-                            <div class="card border-0">
+                            <div id="workplace" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Workplace
                                 </div>
                                 <div class="card-body">
-                                    {{$user->profile->workplace}}
+                                    <span id="workplace-data">{{$user->profile->workplace}}</span>
+                                    <br>
+                                    <div id="edit-workplace" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your workplace</small></div>
+                                    <div class="hidden" id="edit-workplace-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Workplace
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-workplace" class="form-control" type="text" name="workplace" value="{{$user->profile->workplace}}" data-store="workplace">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="workplace" data-store="workplace" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-workplace-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="card border-0">
+                            <div id="education" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Education
                                 </div>
                                 <div class="card-body">
                                     Studied {{$user->profile->edu_degree}} at {{$user->profile->edu_school}}.
+                                    <br>
+                                    <div id="edit-education" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your education</small></div>
+                                    <div class="hidden" id="edit-education-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Degree
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-degree" class="form-control" type="text" name="degree" value="{{$user->profile->edu_degree}}" data-store="edu_degree">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                School
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-school" class="form-control" type="text" name="school" value="{{$user->profile->edu_school}}" data-store="edu_school">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="education" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-education-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,20 +224,52 @@
                             Places Lived
                         </div>
                         <div class="card-body">
-                            <div class="card border-0">
+                            <div id="city" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Current City
                                 </div>
                                 <div class="card-body">
                                     {{$user->profile->current_city}}
+                                    <br>
+                                    <div id="edit-city" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your current city.</small></div>
+                                    <div class="hidden" id="edit-city-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Current city
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-city" class="form-control" type="text" name="city" value="{{$user->profile->current_city}}" data-store="current_city">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="city" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-city-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-city" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your current city</small></div>
                                 </div>
                             </div>
-                            <div class="card border-0">
+                            <div id="hometown" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Hometown
                                 </div>
                                 <div class="card-body">
                                     {{$user->profile->hometown}}
+                                    <br>
+                                    <div id="edit-hometown" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your hometown.</small></div>
+                                    <div class="hidden" id="edit-hometown-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Hometown
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-hometown" class="form-control" type="text" name="hometown" value="{{$user->profile->hometown}}" data-store="hometown">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="hometown" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-hometown-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-hometown" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your hometown.</small></div>
                                 </div>
                             </div>
                         </div>
@@ -205,15 +280,31 @@
                             Contact and Basic Info.
                         </div>
                         <div class="card-body">
-                            <div class="card border-0">
+                            <div id="phone" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Phone
                                 </div>
                                 <div class="card-body">
                                     {{$user->profile->phone}}
+                                    <br>
+                                    <div id="edit-phone" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your phone number.</small></div>
+                                    <div class="hidden" id="edit-phone-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Phone
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-phone" class="form-control" type="text" name="phone" value="{{$user->profile->phone}}" data-store="phone">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="phone" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-phone-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-phone" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your phone number.</small></div>
                                 </div>
                             </div>
-                            <div class="card border-0">
+                            <div id="email" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Email
                                 </div>
@@ -221,20 +312,52 @@
                                     {{$user->profile->email}}
                                 </div>
                             </div>
-                            <div class="card border-0">
+                            <div id="birthday" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Birthday
                                 </div>
                                 <div class="card-body">
                                     {{$user->profile->birthday}}
+                                    <br>
+                                    <div id="edit-birthday" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your birthday</small></div>
+                                    <div class="hidden" id="edit-birthday-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Birthday
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-birthday" class="form-control" type="text" name="birthday" value="{{$user->profile->birthday}}" data-store="birthday">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="birthday" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-birthday-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-birthday" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your birthday.</small></div>
                                 </div>
                             </div>
-                            <div class="card border-0">
+                            <div id="gender" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Gender
                                 </div>
                                 <div class="card-body">
                                     {{$user->profile->gender}}
+                                    <br>
+                                    <div id="edit-gender" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your gender</small></div>
+                                    <div class="hidden" id="edit-gender-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Gender
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-gender" class="form-control" type="text" name="gender" value="{{$user->profile->gender}}" data-store="gender">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="gender" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-gender-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-gender" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your gender.</small></div>
                                 </div>
                             </div>
                         </div>
@@ -245,12 +368,28 @@
                             Others
                         </div>
                         <div class="card-body">
-                            <div class="card border-0">
+                            <div id="nickname" class="profile-info card border-0">
                                 <div class="card-header font-weight-bold">
                                     Nickname
                                 </div>
                                 <div class="card-body">
                                     {{$user->username}}
+                                    <br>
+                                    <div id="edit-nickname" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your nickname</small></div>
+                                    <div class="hidden" id="edit-nickname-section">
+                                        <div class="row">
+                                            <div class="col-md-6 text-right p-1 pl-2">
+                                                Nickname
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="input-nickname" class="form-control" type="text" name="nickname" value="{{$user->profile->nickname}}" data-store="nickname">
+                                            </div>
+                                        </div>
+                                        <div class="pt-3 text-right">
+                                            <button data-category="nickname" class="btn btn-primary btn-sm mr-2 save-edit-profile">Save Changes</button><button id="hide-edit-nickname-section" class="btn btn-basic btn-sm border hide-edit-profile-section">Cancel</button> 
+                                        </div>
+                                    </div>
+                                    <div id="edit-nickname" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your nickname.</small></div>
                                 </div>
                             </div>
                         </div>

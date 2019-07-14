@@ -32,5 +32,6 @@ Route::post('/post/delete', "PostsController@delete")->name('delete post')->midd
 /****************** PROFILES ******************/
 
 Route::get('/{username}/{section}', 'ProfilesController@getSection')->name('profile sections');
+Route::post('/profile/about/update', 'ProfilesController@update')->name('update about on profile');
 
 /**********************************************/

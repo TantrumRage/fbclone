@@ -154,3 +154,21 @@
 .profile-sections{
 	display: none;
 }
+
+.hidden{
+	display: none;
+}
+
+.pointer{
+	cursor: pointer;
+}
+
+.edit-profile-section-btn small{
+	font-weight: bold !important;
+}
+
+.edit-profile-section-btn:hover{
+	text-decoration: underline;
+	color: blue;
+	font-weight: bold;
+}
