@@ -94,21 +94,24 @@
         </div>
 
         <div class="col-md-6 mt-3">
-            @if(auth()->user()->id === $user->id)
-            <div class="card bg-dark border-light mb-4">
-                <div class="card-header border-light"><strong>Create Post</strong></div>
-                <div class="card-body border-light">
-                    <textarea id="post-body" class="bg-dark text-white w-100 p-2" placeholder="What's on your mind, {{auth()->user()->fname}}?" required></textarea>
+            @if(Auth::check())
+                @if(auth()->user()->id === $user->id)
+                <div class="card bg-dark border-light mb-4">
+                    <div class="card-header border-light"><strong>Create Post</strong></div>
+                    <div class="card-body border-light">
+                        <textarea id="post-body" class="bg-dark text-white w-100 p-2" placeholder="What's on your mind, {{auth()->user()->fname}}?" required></textarea>
 
-                    <div class="text-right pt-2">
-                        <button id="post-btn" class="btn btn-info" onclick="submitPost()">
-                            <span id="post-submit-loader" class="spinner-border spinner-border-sm"></span> Post
-                        </button>
+                        <div class="text-right pt-2">
+                            <button id="post-btn" class="btn btn-info" onclick="submitPost()">
+                                <span id="post-submit-loader" class="spinner-border spinner-border-sm"></span> Post
+                            </button>
+                        </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
+                @endif
             @endif
+            
 
             <div class="row justify-content-left" id="profile-posts">
                 @foreach(App\Post::where('user_id', $user->id)->get() as $post)
