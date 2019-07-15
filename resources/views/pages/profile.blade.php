@@ -60,10 +60,24 @@
                         <div class="card bg-dark border-light">
                             <div class="card-header border-light">Intro</div>
                             <div class="card-body border-light">
-                                <p class="p-0 mb-0">Studied at CBSUA</p>
-                                <p class="p-0 mb-0">Lives in Libmanan</p>
-                                <p class="p-0 mb-0">From Sipocot, Camarines Sur</p>
-                                <p class="p-0 mb-0">Followed by 10 people</p>
+                                <div class="d-flex">
+                                    <i class="fas fa-graduation-cap pr-2"> </i>
+                                    
+                                    <p class="p-0 mb-0"> Studied {{$user->profile->edu_degree}} at {{$user->profile->edu_school}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="fas fa-graduation-cap" style="width: 30px;"></i>
+                                    <p class="p-0 mb-0"> Went to {{$user->profile->edu_school}}</p>
+                                </div>    
+                                <div class="d-flex">
+                                    <i class="fas fa-home" style="width: 30px;"></i>
+                                    <p class="p-0 mb-0"> Lives in {{$user->profile->current_city}}</p>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="fas fa-map-marker-alt" style="width: 30px;"></i>
+                                    <p class="p-0 mb-0">From {{$user->profile->hometown}}</p>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
