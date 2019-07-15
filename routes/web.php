@@ -16,8 +16,6 @@ Auth::routes();
 /****************** PAGES *******************/
 Route::get('/', "PagesController@index")->middleware('auth');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/{username}', 'PagesController@profile')->name('profile');
 
 /********************************************/
