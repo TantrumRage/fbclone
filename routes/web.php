@@ -27,6 +27,13 @@ Route::post('/post/update', "PostsController@update")->name('update post')->midd
 Route::post('/post/delete', "PostsController@delete")->name('delete post')->middleware('auth');
 /********************************************/
 
+/****************** LIKES *******************/
+
+Route::get('/post/like/{postId}', 'LikesController@like')->name('like post');
+
+/********************************************/
+
+
 /****************** PROFILES ******************/
 
 Route::get('/{username}/{section}', 'ProfilesController@getSection')->name('profile sections');

@@ -38,9 +38,13 @@
                             <div class="card-body border-light">
                                 {{$post->body}}
                             </div>
+                            <div class="p-1">
+                                {{count($post->likes)}} likes
+                            </div>
                             <div class="card-footer border-light">
+                               
                                 <div class="row">
-                                    <div class="col-4 text-center p-0"><i class="fas fa-thumbs-up"></i> Like</div>
+                                    <div class="like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>
                                     <div class="col-4 text-center p-0"><i class="fas fa-share"></i> Share</div>
                                 </div>

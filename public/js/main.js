@@ -1,32 +1,43 @@
 $(document).ready(function() {
+	// Show edit profile button
 	$(".profile-info").mouseenter(function() {
 		$("#edit-" + this.id).show();
 	});
+
+	// Hide edit profile button	
 	$(".profile-info").mouseleave(function() {
 		$("#edit-" + this.id).hide();
 	});
+
+	// Show edit profile section
 	$(".edit-profile-section-btn").click(function() {
 		$("#" + this.id + "-section").show("slow");
 	});
+
+	// Hide edit profile section
 	$(".hide-edit-profile-section").click(function() {
 		var editSection = this.id;
 		editSection = editSection.slice(editSection.indexOf('-')+1, editSection.length);
 		$("#" + editSection).hide("slow");
 	});
+
+	// Save changes on edit profile
 	$(".save-edit-profile").click(function() {
 		
 		var	category = $(this).data("category");
 
+		// Get parent of input elements to get all data from input elements
 		var parent = $($(this).parent()).parent().attr("id");
 		var dataInput = $("#" + parent).find('input');
 		var arrData = [];
 		
-		//console.log($(dataInput[0]).attr('id'));
-
+		// Get array of changes made
 		for (var i = 0; i <= dataInput.length - 1; i++) {
 			var store = $(dataInput[i]).data("store");
 			arrData.push({'body': dataInput[i].value,'store': store});
 		}
+
+		// Send changes to server
 
 		axios.post('/profile/about/update', {
 		    data: arrData,
@@ -38,8 +49,21 @@ $(document).ready(function() {
 		  .catch(function (error) {
 		    console.log(error);
 		  });
-
 	});
+
+	// Like post
+	$(".like-post").click(function() {
+		//alert($(this).data('postkey'));
+		axios.get('/post/like/' + $(this).data('postkey'), {
+		  })
+		  .then(function (response) {
+		    alert('liked');
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  });
+	});
+
 });
 
 function submitPost() {
