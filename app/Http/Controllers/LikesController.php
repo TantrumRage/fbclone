@@ -8,10 +8,7 @@ use App\Like;
 class LikesController extends Controller
 {
     public function like($postId) {
-    	$like = new Like;
-
-    	$like->post_id = $postId;
-    	$like->user_id = auth()->user()->id;
-    	$like->save();
+    	$like  = Like::firstOrCreate(['post_id' => $postId, 'user_id' => auth()->user()->id]);
     }
 }
+

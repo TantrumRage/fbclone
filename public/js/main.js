@@ -54,7 +54,7 @@ $(document).ready(function() {
 	// Like post
 	$(".like-post").click(function() {
 		//alert($(this).data('postkey'));
-		axios.get('/post/like/' + $(this).data('postkey'), {
+		axios.post('/post/like/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
 		    alert('liked');
