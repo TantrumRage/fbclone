@@ -10,5 +10,13 @@ class LikesController extends Controller
     public function like($postId) {
     	$like  = Like::firstOrCreate(['post_id' => $postId, 'user_id' => auth()->user()->id]);
     }
+
+    public function unlike($postId) {
+    	$like = Like::where([
+    		['post_id', '=', $postId],
+    		['user_id', '=', auth()->user()->id],
+    	])->delete();
+
+    }
 }
 

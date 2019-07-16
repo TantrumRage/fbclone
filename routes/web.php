@@ -30,6 +30,7 @@ Route::post('/post/delete', "PostsController@delete")->name('delete post')->midd
 /****************** LIKES *******************/
 
 Route::post('/post/like/{postId}', 'LikesController@like')->name('like post');
+Route::post('/post/unlike/{postId}', 'LikesController@unlike')->name('unlike post');
 
 /********************************************/
 

@@ -58,13 +58,26 @@ $(document).ready(function() {
 		  })
 		  .then(function (response) {
 		    $(likeBtn).attr('style', 'color: #17a2b8 !important;');
-		    //$(likeBtn).removeClass()
+		    $(likeBtn).removeClass("like-post").addClass("unlike-post");
 		  })
 		  .catch(function (error) {
 		    console.log(error);
 		  });
 	});
 
+	// Unlike post
+	$(document).on('click', '.unlike-post', function() {
+		var unlikeBtn = this;
+		axios.post('/post/unlike/' + $(this).data('postkey'), {
+		  })
+		  .then(function (response) {
+		    $(unlikeBtn).attr('style', 'color: #fff !important;');
+		    $(unlikeBtn).removeClass("unlike-post").addClass("like-post");
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  });
+	});
 });
 
 function submitPost() {
