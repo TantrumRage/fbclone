@@ -53,11 +53,12 @@ $(document).ready(function() {
 
 	// Like post
 	$(".like-post").click(function() {
-		//alert($(this).data('postkey'));
+		var likeBtn = this;
 		axios.post('/post/like/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
-		    alert('liked');
+		    $(likeBtn).attr('style', 'color: #17a2b8 !important;');
+		    //$(likeBtn).removeClass()
 		  })
 		  .catch(function (error) {
 		    console.log(error);
