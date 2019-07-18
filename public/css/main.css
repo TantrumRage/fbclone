@@ -172,3 +172,11 @@
 	color: blue;
 	font-weight: bold;
 }
+
+.like-post{
+	color: #fff !important;
+}
+
+.unlike-post{
+	color: #17a2b8 !important;
+}

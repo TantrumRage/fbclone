@@ -44,7 +44,16 @@
                             <div class="card-footer border-light">
                                
                                 <div class="row">
-                                    <div class="like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+                                    @if(!empty(App\Like::where([
+                                            ['post_id', '=', $post->id],
+                                            ['user_id', '=', auth()->user()->id],
+                                        ])->first()))
+
+                                        <div class="unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+                                    @else
+                                        <div class="like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+                                    @endif
+                                    
                                     <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>
                                     <div class="col-4 text-center p-0"><i class="fas fa-share"></i> Share</div>
                                 </div>

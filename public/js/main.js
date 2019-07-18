@@ -57,7 +57,7 @@ $(document).ready(function() {
 		axios.post('/post/like/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
-		    $(likeBtn).attr('style', 'color: #17a2b8 !important;');
+		    //$(likeBtn).attr('style', 'color: #17a2b8 !important;');
 		    $(likeBtn).removeClass("like-post").addClass("unlike-post");
 		  })
 		  .catch(function (error) {
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		axios.post('/post/unlike/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
-		    $(unlikeBtn).attr('style', 'color: #fff !important;');
+		    //$(unlikeBtn).attr('style', 'color: #fff !important;');
 		    $(unlikeBtn).removeClass("unlike-post").addClass("like-post");
 		  })
 		  .catch(function (error) {
