@@ -49,9 +49,9 @@
                                             ['user_id', '=', auth()->user()->id],
                                         ])->first()))
 
-                                        <div class="unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+                                        <div class="pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     @else
-                                        <div class="like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+                                        <div class="pointer like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     @endif
                                     
                                     <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>
