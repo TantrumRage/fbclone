@@ -38,10 +38,10 @@
                             <div class="card-body border-light">
                                 {{$post->body}}
                             </div>
-                            <div class="p-1">
-                                {{count($post->likes)}} likes
+                            <div class="p-1 like-counter-container">
+                                <span class="like-counter">{{count($post->likes)}}</span> likes
                             </div>
-                            <div class="card-footer border-light">
+                            <div class="card-footer border-light post-buttons-container">
                                
                                 <div class="row">
                                     @if(!empty(App\Like::where([
@@ -50,8 +50,12 @@
                                         ])->first()))
 
                                         <div class="pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+
+                                        <div class="hidden pointer like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     @else
                                         <div class="pointer like-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
+
+                                        <div class="hidden pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     @endif
                                     
                                     <div class="col-4 text-center p-0"><i class="fas fa-comment-alt"></i> Comment</div>

@@ -57,8 +57,15 @@ $(document).ready(function() {
 		axios.post('/post/like/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
-		    //$(likeBtn).attr('style', 'color: #17a2b8 !important;');
-		    $(likeBtn).removeClass("like-post").addClass("unlike-post");
+		  	$(likeBtn).hide();
+		  	$(likeBtn).siblings(".unlike-post").show();
+		  	// Select like counter
+		  	var likeCounter = $(likeBtn).closest(".post-buttons-container").siblings(".like-counter-container").find(".like-counter");
+		    //$(likeBtn).removeClass("like-post").addClass("unlike-post");
+
+		    // Add 1 to like counter
+		    likeCounter.html(parseInt(likeCounter.html()) + 1);
+		    
 		  })
 		  .catch(function (error) {
 		    console.log(error);
@@ -66,13 +73,20 @@ $(document).ready(function() {
 	});
 
 	// Unlike post
-	$(document).on('click', '.unlike-post', function() {
+	$(".unlike-post").click(function() {
 		var unlikeBtn = this;
 		axios.post('/post/unlike/' + $(this).data('postkey'), {
 		  })
 		  .then(function (response) {
-		    //$(unlikeBtn).attr('style', 'color: #fff !important;');
-		    $(unlikeBtn).removeClass("unlike-post").addClass("like-post");
+		  	$(unlikeBtn).hide();
+		  	$(unlikeBtn).siblings(".like-post").show();
+		  	
+		  	// Select like counter
+		  	var likeCounter = $(unlikeBtn).closest(".post-buttons-container").siblings(".like-counter-container").find(".like-counter");
+		    
+		    // Subtract 1 to like counter
+		    likeCounter.html(parseInt(likeCounter.html()) - 1);
+		    //$(unlikeBtn).removeClass("unlike-post").addClass("like-post");
 		  })
 		  .catch(function (error) {
 		    console.log(error);
