@@ -92,6 +92,14 @@ $(document).ready(function() {
 		    console.log(error);
 		  });
 	});
+
+	// Call when "enter key" is pressed on comment box
+	$(".comment-box").on("keypress", function(e) {
+		if (e.keyCode == 13) {
+            alert($(this).data("commentkey"));
+            //return false; // prevent the button click from happening
+        }
+	});
 });
 
 function submitPost() {
