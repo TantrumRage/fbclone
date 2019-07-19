@@ -96,8 +96,19 @@ $(document).ready(function() {
 	// Call when "enter key" is pressed on comment box
 	$(".comment-box").on("keypress", function(e) {
 		if (e.keyCode == 13) {
-            alert($(this).data("commentkey"));
-            //return false; // prevent the button click from happening
+            var key = $(this).data("postkey");
+            var commentBody = $(this).val();
+
+            axios.post('/post/comment', {
+			    postKey: key,
+			    body: commentBody,
+			  })
+			  .then(function (response) {
+			    console.log(response);
+			  })
+			  .catch(function (error) {
+			    console.log(error);
+			  });
         }
 	});
 });

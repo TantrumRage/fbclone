@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="card-footer border-light">
-                                <input class="form-control bg-dark comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-commentkey="{{$post->id}}">
+                                <input class="form-control bg-dark comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
                                                             
                             </div>
                         </div>

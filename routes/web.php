@@ -34,6 +34,12 @@ Route::post('/post/unlike/{postId}', 'LikesController@unlike')->name('unlike pos
 
 /********************************************/
 
+/****************** COMMENTS *******************/
+
+Route::post('/post/comment', 'CommentsController@create')->name('create comment');
+//Route::post('/post/unlike/{postId}', 'LikesController@unlike')->name('unlike post');
+
+/********************************************/
 
 /****************** PROFILES ******************/
 
