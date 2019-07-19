@@ -63,8 +63,12 @@
                                 </div>
                             </div>
                             <div class="card-footer border-light">
+                                @foreach(App\Comment::where('post_id', $post->id)->get()->sortByDesc('created_at')->take(3)->sortBy('created_at') as $comment)
+                                <div>
+                                    <span class="font-weight-bold">{{$comment->user->fname . ' ' . $comment->user->lname}}</span> {{$comment->body}}
+                                </div>
+                                @endforeach
                                 <input class="form-control bg-dark comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
-                                                            
                             </div>
                         </div>
                     </div> 
