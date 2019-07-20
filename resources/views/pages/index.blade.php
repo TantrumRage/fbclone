@@ -38,9 +38,12 @@
                             <div class="card-body border-light">
                                 {{$post->body}}
                             </div>
-                            <div class="p-1 like-counter-container">
-                                <span class="like-counter">{{count($post->likes)}}</span> likes
-                            </div>
+                            @if(count($post->likes) > 0)
+                                <div class="p-1 like-counter-container mb-1">
+                                    <span class="p-1 rounded-circle bg-primary" style="font-size: 10px"><i class="fas fa-thumbs-up"></i></span> <span class="like-counter">{{count($post->likes)}}</span>
+                                </div>
+                            @endif
+                            
                             <div class="card-footer border-light post-buttons-container">
                                
                                 <div class="row">
