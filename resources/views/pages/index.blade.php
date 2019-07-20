@@ -66,7 +66,7 @@
                                 <div class="mb-3 comments-container">
                                     @foreach(App\Comment::where('post_id', $post->id)->get()->sortByDesc('created_at')->take(3)->sortBy('created_at') as $comment)
                                     <div>
-                                        <span class="font-weight-bold">{{$comment->user->fname . ' ' . $comment->user->lname}}</span> {{$comment->body}}
+                                        <a href="/{{$comment->user->username}}" class="font-weight-bold">{{$comment->user->fname . ' ' . $comment->user->lname}}</a> {{$comment->body}}
                                     </div>
                                     @endforeach   
                                 </div>
