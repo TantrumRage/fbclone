@@ -58,7 +58,7 @@
                                         <div class="hidden pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
                                     @endif
                                     
-                                    <div class="col-4 text-center p-0 pointer"><i class="fas fa-comment-alt"></i> Comment</div>
+                                    <div class="col-4 text-center p-0 pointer comment-btn"><i class="fas fa-comment-alt"></i> Comment</div>
                                     <div class="col-4 text-center p-0 pointer"><i class="fas fa-share"></i> Share</div>
                                 </div>
                             </div>

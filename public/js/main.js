@@ -93,6 +93,11 @@ $(document).ready(function() {
 		  });
 	});
 
+	// Call when Comment button is clicked
+	$(".comment-btn").click(function() {
+		$(this).closest(".post-buttons-container").siblings(".card-footer").find(".comment-box").focus();
+	});
+
 	// Call when "enter key" is pressed on comment box
 	$(".comment-box").on("keypress", function(e) {
 		if (e.keyCode == 13) {
