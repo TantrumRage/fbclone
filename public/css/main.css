@@ -183,3 +183,8 @@
 
 .like-counter{
 }
+
+.hidden-post-img-btn-container{
+	z-index: -1;
+	position: absolute;
+}

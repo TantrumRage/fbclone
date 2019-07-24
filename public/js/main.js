@@ -116,7 +116,32 @@ $(document).ready(function() {
 			  });
         }
 	});
+
+	// Preview the image that the user wants to post
+	$("#hidden-post-img-btn").change(function() {
+	  readURL(this);
+	});
+
+	// Trigger(click) the input(file) on post section
+	$("#post-img-btn").click(function() {
+		$("#post-img-container").show();
+		$("#hidden-post-img-btn").click();
+	});
+
 });
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#post-img').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 
 function submitPost() {
 	$("#post-submit-loader").attr('style', 'display: inline-block !important');
