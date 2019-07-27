@@ -119,7 +119,7 @@ $(document).ready(function() {
 
 	// Preview the image that the user wants to post
 	$("#hidden-post-img-btn").change(function() {
-	  readURL(this);
+	  	readURL(this);
 	});
 
 	// Trigger(click) the input(file) on post section
@@ -131,14 +131,20 @@ $(document).ready(function() {
 });
 
 function readURL(input) {
+	console.log();
   if (input.files && input.files[0]) {
-    var reader = new FileReader();
+  	if (input.files[0].type == "image/jpeg" || input.files[0].type == "image/png") {
+  		var reader = new FileReader();
     
-    reader.onload = function(e) {
-      $('#post-img').attr('src', e.target.result);
-    }
-    
-    reader.readAsDataURL(input.files[0]);
+	    reader.onload = function(e) {
+	      $('#post-img').attr('src', e.target.result);
+	    }
+	    
+	    reader.readAsDataURL(input.files[0]);
+  	}
+  	else {
+  		alert("Invalid file type. Must be an image.");
+  	}
   }
 }
 
@@ -146,16 +152,24 @@ function readURL(input) {
 function submitPost() {
 	$("#post-submit-loader").attr('style', 'display: inline-block !important');
 	var postBody = $("#post-body").val();
+	var data = new FormData();
 
-	axios.post('/post/save', {
-	    body: postBody
-	  })
-	  .then(function (response) {
-	    $("#post-submit-loader").attr('style', 'display: none !important');
-	  })
-	  .catch(function (error) {
-	    console.log(error);
-	  });
+	//console.log(document.getElementById("hidden-post-img-btn").files[0]);
+	//console.log($("#post-img"));
+	data.append('body', postBody);
+	data.append('postImage', document.getElementById("hidden-post-img-btn").files[0]);
+	//console.log(data);
+	if (data != "") {
+		axios.post('/post/save', data)
+			  .then(function (response) {
+			    $("#post-submit-loader").attr('style', 'display: none !important');
+			    console.log(response.data);
+			  })
+			  .catch(function (error) {
+			    console.log(error.response.data.message);
+			  });
+	}
+	
 }
 
 function showEditPost(postId) {

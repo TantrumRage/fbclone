@@ -11,7 +11,7 @@
                     <div>
                         <button id="post-img-btn" class="btn btn-outline-success">Add Image</button>
                         <form runat="server" class="hidden-post-img-btn-container">
-                          <input type='file' id="hidden-post-img-btn" />
+                          <input type='file' id="hidden-post-img-btn" name="postImage" />
                         </form>
                         <div id="post-img-container" class="hidden pt-2">
                             <img src="#" id="post-img" alt="" style="height: 150px; width: 150px;" />
@@ -46,6 +46,14 @@
                             </div>
                             <div class="card-body border-light">
                                 {{$post->body}}
+                                <div class="mt-3">
+                                    @if(!empty($post->images))
+                                        @foreach($post->images as $postImage)
+                                            <img src="{{asset('storage/post_images/' . $postImage->image)}}">
+                                        @endforeach
+                                    
+                                    @endif
+                                </div>
                             </div>
                             <div class="p-1 like-counter-container mb-1">
                                 <span class="p-1 rounded-circle bg-primary" style="font-size: 10px"><i class="fas fa-thumbs-up"></i></span> <span class="like-counter">{{count($post->likes)}}</span>
