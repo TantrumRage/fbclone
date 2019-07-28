@@ -28,7 +28,7 @@
             </div>
 
             <div class="row justify-content-left">
-                @foreach(App\Post::where('user_id', auth()->user()->id)->get() as $post)
+                @foreach(App\Post::where('user_id', auth()->user()->id)->get()->reverse() as $post)
                     <div class="col-12 mb-5">
                         <div class="card bg-dark border-light p-2">
                             <div class="card-header border-bottom-0 border-light">
