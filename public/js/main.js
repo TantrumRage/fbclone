@@ -215,16 +215,22 @@ function deletePost(postId) {
 	  });
 }
 
-// Show profile timeline without reloading the page
+// Show profile "timeline" without reloading the page
 function getProfileTimeline(user) {
-	window.history.replaceState({page: "timeline"}, "Timeline", "/" + user);
+	window.history.replaceState({page: "profile"}, "Timeline", "/" + user);
 	$(".profile-sections").hide();
 	$("#timeline").show();
 }
 
-// Show profile about without reloading the page
+// Show profile "about" without reloading the page
 function getProfileAbout(user) {
-	window.history.replaceState({page: "timeline"}, "Timeline", "/" + user + "/about");
+	window.history.replaceState({page: "profile"}, "About", "/" + user + "/about");
 	$(".profile-sections").hide();
 	$("#about").show();
+}
+
+function getProfilePhotos(user) {
+	window.history.replaceState({page: "profile"}, "Photos", "/" + user + "/photos");
+	$(".profile-sections").hide();
+	$("#photos").show();
 }

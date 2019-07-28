@@ -37,17 +37,17 @@
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
-                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
+                            <span class="btn text-light" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
                         </span>
                        <span class="p-2">
-                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
+                            <span class="btn text-light" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
                        </span>
                        <span class="p-2">
                             <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>
                             
                        </span>
                        <span class="p-2">
-                           <a class="btn text-light" href="/{{$user->username}}/about">Photos</a>
+                           <span class="btn text-light" onclick="getProfilePhotos({{'"'.$user->username.'"'}})">Photos</span>
                        </span>
                    </div>
                </div>
@@ -400,6 +400,14 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="photos" style="display: none;" class="row">
+        @foreach($user->postImages as $photo)
+            <div class="col-md-4 col-sm-6 col-12 mb-3 mb-sm-4">
+                <img class="img-fluid" src="{{asset('storage/post_images/' . $photo->image)}}">
+            </div>
+        @endforeach
     </div>
 </div>
 
