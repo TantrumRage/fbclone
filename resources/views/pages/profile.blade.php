@@ -96,7 +96,17 @@
                         <div class="card bg-dark border-light">
                             <div class="card-header border-light">Photos</div>
                             <div class="card-body border-light">
-                                <p class="text-center mb-0">No photos to show.</p>
+                                @if(!empty($user->postImages))
+                                    <div class="row">
+                                        @foreach($user->postImages->reverse()->take(6) as $photo)
+                                            <div class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-4">
+                                                <img class="img-fluid" src="{{asset('storage/post_images/' . $photo->image)}}">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <p class="text-center mb-0">No photos to show.</p>
+                                @endif
                             </div>
                         </div>
                     </div>
