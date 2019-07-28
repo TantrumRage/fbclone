@@ -49,7 +49,7 @@
                                 <div class="mt-3">
                                     @if(!empty($post->images))
                                         @foreach($post->images as $postImage)
-                                            <img src="{{asset('storage/post_images/' . $postImage->image)}}">
+                                            <img class="img-fluid" src="{{asset('storage/post_images/' . $postImage->image)}}">
                                         @endforeach
                                     
                                     @endif
