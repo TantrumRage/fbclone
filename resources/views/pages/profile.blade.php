@@ -17,10 +17,18 @@
                     </p>
                 </div>
                 <div class="ml-auto pr-3">
-                    <div id="profile-options">
-                        <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
-                        <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
-                        <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                    @if($user->id === auth()->user()->id)
+                        <div id="current-profile-options">
+                    @else
+                        <div id="other-profile-options">
+                    @endif
+                        @if($user->id !== auth()->user()->id)
+                            <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
+                            <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
+                            <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                        @else
+                            <span class="btn mr-2"><i class="fas fa-pencil-alt"></i> Edit Profile</span>
+                        @endif
                     </div>
                     
                 </div>

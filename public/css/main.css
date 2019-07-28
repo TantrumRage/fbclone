@@ -135,17 +135,21 @@
 	height: 75vh;
 }
 
-#profile-options{
+#other-profile-options{
 	margin-top: 70%;
 }
 
-#profile-options span{
+#current-profile-options{
+	margin-top: 155%;
+}
+
+#current-profile-options span, #other-profile-options span{
 	background: #000000bf;
 	color: #f8f9fa;
 	border: 2px solid none;
 }
 
-#profile-options span:hover{
+#current-profile-options span:hover, #other-profile-options span:hover{
 	background: none;
 	color: #000000bf;
 	border-color: #000000bf;
