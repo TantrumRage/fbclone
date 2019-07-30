@@ -128,6 +128,16 @@ $(document).ready(function() {
 		$("#hidden-post-img-btn").click();
 	});
 
+	// Call when hovered on profile picture
+	$("#profile-picture").mouseenter(function() {
+		$("#change-profile-picture-container").css("z-index", 3);
+
+		$("#change-profile-picture-wrapper").mouseleave(function() {
+			$("#change-profile-picture-container").css("z-index", -1);
+		});
+	});
+
+	
 });
 
 function readURL(input) {

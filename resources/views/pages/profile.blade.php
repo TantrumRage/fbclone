@@ -5,6 +5,18 @@
 <div id="container" class="container-fluid bg-dark text-light">
     <div class="row pt-5">
         <div id="profile-info-container" class="col-12 mt-3">
+            <div class="row p-1 pl-4" id="change-profile-picture-container">
+                <div class="img-fluid pointer" id="change-profile-picture-wrapper">
+                    <div class="h-50">
+                        
+                    </div>
+                    <div class="h-50 text-center p-2" id="change-profile-picture">
+                        <span class="pl-2"><i class="fas fa-camera"></i></span>
+                        <br>
+                        <span class="font-weight-bold">CHANGE</span>
+                    </div>
+                </div>
+            </div>
             <div id="cover-photo" class="row">
                 <div class="p-1 pl-4">
                     <div style="margin-top: 100%;">

@@ -123,6 +123,27 @@
 	border: 3px solid #fff;
 }
 
+#change-profile-picture-container{
+	z-index: -1; 
+	position: absolute;
+}
+
+#change-profile-picture-wrapper{
+	z-index: 3; 
+	position: relative; 
+	height: 150px; 
+	width: 150px; 
+	background: #ffffff00; 
+	margin-top: 100%; 
+	border-radius: 100%; 
+	border: 3px solid #fff;
+}
+
+#change-profile-picture{
+	border-radius: 0 0 200px 200px; 
+	background: #0000008a;
+}
+
 #profile-name{
 	margin-top: 100%;
 	background: #00000085;
