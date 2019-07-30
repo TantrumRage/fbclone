@@ -6,22 +6,32 @@
     <div class="row pt-5">
         <div id="profile-info-container" class="col-12 mt-3">
             <div class="row p-1 pl-4" id="change-profile-picture-container">
-                <div class="img-fluid pointer" id="change-profile-picture-wrapper">
-                    <div class="h-50">
-                        
-                    </div>
-                    <div class="h-50 text-center p-2" id="change-profile-picture">
-                        <span class="pl-2"><i class="fas fa-camera"></i></span>
-                        <br>
-                        <span class="font-weight-bold">CHANGE</span>
-                    </div>
-                </div>
+                @if(Auth::check())
+                    @if($user->id === auth()->user()->id)
+                        <input id="hidden-profile-picture" type="file" name="hidden-profile-picture" class="d-none">
+                        <div class="img-fluid pointer" id="change-profile-picture-wrapper">
+                            <div class="h-50">
+                                
+                            </div>
+                            <div class="h-50 text-center p-2" id="change-profile-picture">
+                                <span class="pl-2"><i class="fas fa-camera"></i></span>
+                                <br>
+                                <span class="font-weight-bold">CHANGE</span>
+                            </div>
+                        </div>    
+                    @endif
+                
+                @endif
             </div>
             <div id="cover-photo" class="row">
                 <div class="p-1 pl-4">
                     <div style="margin-top: 100%;">
                         <div class="bg-light" style="z-index: 3; position: relative;"></div>
-                        <img class="img-fluid" id="profile-picture" src="../images/landing-page-img.jpg">
+                        @if(!empty(App\User::find($user->id)->profile_picture))
+                            <img class="img-fluid" id="profile-picture" src="{{asset("storage/profile_pictures/" . App\User::find($user->id)->profile_picture)}}">
+                        @else
+                            <img class="img-fluid" id="profile-picture" src="../images/landing-page-img.jpg">
+                        @endif
                     </div>
                     
                 </div>

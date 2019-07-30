@@ -119,7 +119,8 @@ $(document).ready(function() {
 
 	// Preview the image that the user wants to post
 	$("#hidden-post-img-btn").change(function() {
-	  	readURL(this);
+		var container = "#post-img";
+	  	readURL(this, container);
 	});
 
 	// Trigger(click) the input(file) on post section
@@ -137,17 +138,42 @@ $(document).ready(function() {
 		});
 	});
 
+	$("#change-profile-picture-wrapper").click(function() {
+		$("#hidden-profile-picture").click();
+	});
+
+	$("#hidden-profile-picture").change(function() {
+		var data = new FormData();
+		var container = "#profile-picture";
+		var targetImage = this;
+
+		data.append('image', document.getElementById("hidden-profile-picture").files[0]);
+
+		if(data !== "") {
+			axios.post('/profile/profilepicture/update', data)
+			  .then(function (response) {
+			  	console.log(response.data);
+
+			    readURL(targetImage, container);
+			  })
+			  .catch(function (error) {
+			    console.log(error.response.data.message);
+			  });	
+		}
+		
+	});
+
 	
 });
 
-function readURL(input) {
+function readURL(input, container) {
 	console.log();
   if (input.files && input.files[0]) {
   	if (input.files[0].type == "image/jpeg" || input.files[0].type == "image/png") {
   		var reader = new FileReader();
     
 	    reader.onload = function(e) {
-	      $('#post-img').attr('src', e.target.result);
+	      $(container).attr('src', e.target.result);
 	    }
 	    
 	    reader.readAsDataURL(input.files[0]);

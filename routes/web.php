@@ -45,5 +45,6 @@ Route::post('/post/comment', 'CommentsController@create')->name('create comment'
 
 Route::get('/{username}/{section}', 'ProfilesController@getSection')->name('profile sections');
 Route::post('/profile/about/update', 'ProfilesController@update')->name('update about on profile');
+Route::post('/profile/profilepicture/update', 'ProfilesController@updateProfilePicture')->name('update profile picture');
 
 /**********************************************/

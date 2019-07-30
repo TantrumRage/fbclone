@@ -21,4 +21,28 @@ class ProfilesController extends Controller
             $profile->save();
         }
     }
+
+    public function updateProfilePicture(Request $request) {
+        // Process image upload 
+            // get filename with extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // get extension
+            $extension = $request->file('image')->extension();
+
+            // filename to store
+            $filenameToStore = $filename . time() . '.' . $extension;
+
+            // Upload image
+            $path = $request->file('image')->storeAs('public/profile_pictures', $filenameToStore);
+
+
+            // Save new profile picture
+            $profile = User::find(auth()->user()->id);
+            $profile->profile_picture = $filenameToStore;
+            $profile->save();
+    }  
 }
