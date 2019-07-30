@@ -8,7 +8,7 @@ use App\User;
 class PagesController extends Controller
 {
     public function index() {
-    	return view('pages.index');
+    	return view('pages.index')->with('user', auth()->user());
     }
 
     public function profile($username) {

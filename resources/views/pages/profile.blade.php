@@ -7,7 +7,11 @@
         <div id="profile-info-container" class="col-12 mt-3">
             <div id="cover-photo" class="row">
                 <div class="p-1 pl-4">
-                    <img class="img-fluid" id="profile-picture" src="../images/landing-page-img.jpg">
+                    <div style="margin-top: 100%;">
+                        <div class="bg-light" style="z-index: 3; position: relative;"></div>
+                        <img class="img-fluid" id="profile-picture" src="../images/landing-page-img.jpg">
+                    </div>
+                    
                 </div>
                 <div class="p-1">
                     <p id="profile-name" class="p-2">
@@ -17,18 +21,29 @@
                     </p>
                 </div>
                 <div class="ml-auto pr-3">
-                    @if($user->id === auth()->user()->id)
-                        <div id="current-profile-options">
-                    @else
-                        <div id="other-profile-options">
-                    @endif
-                        @if($user->id !== auth()->user()->id)
-                            <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
-                            <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
-                            <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                    @if(Auth::check())
+                        @if($user->id === auth()->user()->id)
+                            <div id="current-profile-options">
                         @else
-                            <span class="btn mr-2"><i class="fas fa-pencil-alt"></i> Edit Profile</span>
+                            <div id="other-profile-options">
                         @endif
+                        
+                            @if($user->id === auth()->user()->id)
+                                <span class="btn mr-2"><i class="fas fa-pencil-alt"></i> Edit Profile</span>
+                            @else
+                                <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
+                                <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
+                                <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                            @endif
+                    @else
+                    <div id="other-profile-options">
+                        <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
+                        <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
+                        <span class="btn"><i class="fas fa-ellipsis-h"></i></span>       
+                    @endif
+                    
+                    
+                        
                     </div>
                     
                 </div>

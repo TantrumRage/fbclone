@@ -1,4 +1,4 @@
-@foreach(App\Post::where('user_id', auth()->user()->id)->get()->reverse() as $post)
+@foreach(App\Post::where('user_id', $user->id)->get()->reverse() as $post)
     <div class="col-12 mb-5">
         <div class="card bg-dark border-light p-2">
             <div class="card-header border-bottom-0 border-light">
@@ -33,7 +33,7 @@
                 <div class="row">
                     @if(!empty(App\Like::where([
                             ['post_id', '=', $post->id],
-                            ['user_id', '=', auth()->user()->id],
+                            ['user_id', '=', $user->id],
                         ])->first()))
 
                         <div class="pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
