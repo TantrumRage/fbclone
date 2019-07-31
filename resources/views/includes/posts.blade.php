@@ -33,7 +33,7 @@
                 <div class="row">
                     @if(!empty(App\Like::where([
                             ['post_id', '=', $post->id],
-                            ['user_id', '=', $user->id],
+                            ['user_id', '=', auth()->user()->id],
                         ])->first()))
 
                         <div class="pointer unlike-post col-4 text-center p-0" data-postkey="{{$post->id}}"><i class="fas fa-thumbs-up"></i> Like</div>
