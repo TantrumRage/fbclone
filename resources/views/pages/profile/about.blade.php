@@ -12,7 +12,7 @@
                     <p id="profile-name" class="p-2">
                         <span class="h5 font-weight-bold">{{$user->fname . ' ' . $user->lname}}</span>
                         <br>
-                        ( {{$user->username}} )
+                        ( {{$user->profile->nickname}} )
                     </p>
                 </div>
                 <div class="ml-auto pr-3">
@@ -28,17 +28,17 @@
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
-                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
+                            <span class="btn text-light" href="/{{$user->profile->nickname}}" onclick="getProfileTimeline({{'"'.$user->profile->nickname.'"'}})">Timeline</span>
                         </span>
                        <span class="p-2">
-                            <span class="btn text-light" href="/{{$user->username}}" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
+                            <span class="btn text-light" href="/{{$user->profile->nickname}}" onclick="getProfileAbout({{'"'.$user->profile->nickname.'"'}})">About</span>
                        </span>
                        <span class="p-2">
-                            <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>
+                            <a class="btn text-light" href="/{{$user->profile->nickname}}/about">Friends ( 55 )</a>
                             
                        </span>
                        <span class="p-2">
-                           <a class="btn text-light" href="/{{$user->username}}/about">Photos</a>
+                           <a class="btn text-light" href="/{{$user->profile->nickname}}/about" onclick="getProfileTimeline({{'"'.$user->profile->nickname.'"'}})">Photos</a>
                        </span>
                    </div>
                </div>
@@ -151,7 +151,7 @@
                                     Nickname
                                 </div>
                                 <div class="card-body">
-                                    {{$user->username}}
+                                    {{$user->profile->nickname}}
                                 </div>
                             </div>
                         </div>

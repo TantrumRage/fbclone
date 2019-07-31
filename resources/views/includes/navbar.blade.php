@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pl-md-5 pr-md-5 pl-0 pr-0 border-bottom">
   <a class="navbar-brand d-none d-md-block" href="{{ url('/') }}">
-    {{ config('app.name', 'Laravel') }}
+    {{ config('app.name', 'fbclone') }}
   </a>  
 @guest
   <a class="navbar-brand d-block d-md-none p-2" href="{{ url('/') }}">
-    {{ config('app.name', 'Laravel') }}
+    {{ config('app.name', 'fbclone') }}
   </a>
 @else
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
@@ -56,7 +56,7 @@
         @else
           
           <li class="nav-item custom-nav-items-md">
-            <a class="nav-link text-center" href="/{{ Auth::user()->username }}">{{ Auth::user()->fname }}</a>
+            <a class="nav-link text-center" href="/{{ Auth::user()->profile->nickname }}">{{ Auth::user()->fname }}</a>
           </li>
 
           <li class="nav-item d-none d-md-block custom-nav-items-md">

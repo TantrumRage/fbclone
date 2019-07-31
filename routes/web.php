@@ -16,7 +16,7 @@ Auth::routes();
 /****************** PAGES *******************/
 Route::get('/', "PagesController@index")->middleware('auth');
 
-Route::get('/{username}', 'PagesController@profile')->name('profile');
+Route::get('/{nickname}', 'PagesController@profile')->name('profile');
 
 /********************************************/
 
@@ -43,7 +43,7 @@ Route::post('/post/comment', 'CommentsController@create')->name('create comment'
 
 /****************** PROFILES ******************/
 
-Route::get('/{username}/{section}', 'ProfilesController@getSection')->name('profile sections');
+Route::get('/{nickname}/{section}', 'ProfilesController@getSection')->name('profile sections');
 Route::post('/profile/about/update', 'ProfilesController@update')->name('update about on profile');
 Route::post('/profile/profilepicture/update', 'ProfilesController@updateProfilePicture')->name('update profile picture');
 

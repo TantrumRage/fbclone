@@ -27,8 +27,8 @@
                 <div class="p-1 pl-4">
                     <div style="margin-top: 100%;">
                         <div class="bg-light" style="z-index: 3; position: relative;"></div>
-                        @if(!empty(App\User::find($user->id)->profile_picture))
-                            <img class="img-fluid" id="profile-picture" src="{{asset("storage/profile_pictures/" . App\User::find($user->id)->profile_picture)}}">
+                        @if(!empty($user->profile->profile_picture))
+                            <img class="img-fluid" id="profile-picture" src="{{asset("storage/profile_pictures/" . $user->profile->profile_picture)}}">
                         @else
                             <img class="img-fluid" id="profile-picture" src="../images/landing-page-img.jpg">
                         @endif
@@ -39,7 +39,7 @@
                     <p id="profile-name" class="p-2">
                         <span class="h5 font-weight-bold">{{$user->fname . ' ' . $user->lname}}</span>
                         <br>
-                        ( {{$user->username}} )
+                        ( {{$user->profile->nickname}} )
                     </p>
                 </div>
                 <div class="ml-auto pr-3">
@@ -74,17 +74,17 @@
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
-                            <span class="btn text-light" onclick="getProfileTimeline({{'"'.$user->username.'"'}})">Timeline</span>
+                            <span class="btn text-light" onclick="getProfileTimeline({{'"'.$user->profile->nickname.'"'}})">Timeline</span>
                         </span>
                        <span class="p-2">
-                            <span class="btn text-light" onclick="getProfileAbout({{'"'.$user->username.'"'}})">About</span>
+                            <span class="btn text-light" onclick="getProfileAbout({{'"'.$user->profile->nickname.'"'}})">About</span>
                        </span>
                        <span class="p-2">
-                            <a class="btn text-light" href="/{{$user->username}}/about">Friends ( 55 )</a>
+                            <a class="btn text-light" href="/{{$user->profile->nickname}}/about">Friends ( 55 )</a>
                             
                        </span>
                        <span class="p-2">
-                           <span class="btn text-light" onclick="getProfilePhotos({{'"'.$user->username.'"'}})">Photos</span>
+                           <span class="btn text-light" onclick="getProfilePhotos({{'"'.$user->profile->nickname.'"'}})">Photos</span>
                        </span>
                    </div>
                </div>
@@ -168,7 +168,7 @@
                 <div class="card bg-dark border-light mb-4">
                     <div class="card-header border-light"><strong>Create Post</strong></div>
                     <div class="card-body border-light">
-                        <textarea id="post-body" class="bg-dark text-white w-100 p-2" placeholder="What's on your mind, {{auth()->user()->fname}}?" required></textarea>
+                        <textarea id="post-body" class="bg-dark text-white w-100 p-2" placeholder="What's on your mind, {{$user->fname}}?" required></textarea>
 
                         <div class="text-right pt-2">
                             <button id="post-btn" class="btn btn-info" onclick="submitPost()">
@@ -412,7 +412,7 @@
                                     Nickname
                                 </div>
                                 <div class="card-body">
-                                    {{$user->username}}
+                                    {{$user->profile->nickname}}
                                     <br>
                                     <div id="edit-nickname" class="edit-profile-section-btn pointer hidden text-left pl-0"><small>Edit your nickname</small></div>
                                     <div class="hidden" id="edit-nickname-section">
@@ -439,7 +439,7 @@
         </div>
     </div>
 
-    <div id="photos" style="display: none;" class="row">
+    <div id="photos" style="display: none;" class="row profile-sections">
         @foreach($user->postImages as $photo)
             <div class="col-md-4 col-sm-6 col-12 mb-3 mb-sm-4">
                 <img class="img-fluid" src="{{asset('storage/post_images/' . $photo->image)}}">

@@ -8,9 +8,9 @@ use App\Profile;
 
 class ProfilesController extends Controller
 {
-    public function getSection($username, $section) {
-    	$user = User::where('username', $username)->first();
-
+    public function getSection($nickname, $section) {
+    	$profile = Profile::where('nickname', $nickname)->first();
+        $user = $profile->user;
     	return view('pages.profile', compact('user', 'section'));
     }
 
@@ -41,7 +41,7 @@ class ProfilesController extends Controller
 
 
             // Save new profile picture
-            $profile = User::find(auth()->user()->id);
+            $profile = Profile::where('user_id', auth()->user()->id)->first();
             $profile->profile_picture = $filenameToStore;
             $profile->save();
     }  

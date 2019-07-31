@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -64,12 +65,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'username' => $data['fname'] . strtotime(date('Y-m-d')),
-        ]);
+        $user = User::create([
+                    'fname' => $data['fname'],
+                    'lname' => $data['lname'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                ]);
+
+        $profile = new Profile;
+        $profile->user_id = $user->id;
+        $profile->email = $data['email'];
+        $profile->nickname = $data['fname'] . strtotime(date('Y-m-d H:i:s'));
+        $profile->profile_picture = "default.jpg";
+        $profile->save();
+
+        return $user;
     }
 }
