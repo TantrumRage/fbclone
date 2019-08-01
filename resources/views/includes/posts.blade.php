@@ -1,22 +1,35 @@
 @foreach(App\Post::where('user_id', $user->id)->get()->reverse() as $post)
     <div class="col-12 mb-5">
         <div class="card bg-dark border-light p-2">
-            <div class="card-header border-bottom-0 border-light">
-                <strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong>
-                <span id="post-option-{{$post->id}}" class="btn float-right post-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <i class="fas fa-ellipsis-h"></i>
-                    <span class="caret"></span>
-                </span>
-                <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="post-option-{{$post->id}}">
-                    <span class="dropdown-item btn text-light bg-dark" onclick="showEditPost({{$post->id}})">Edit
-                    </span>
-                    <span class="dropdown-item btn text-light bg-dark" onclick="deletePost({{$post->id}})">Delete
-                    </span>
+            <div class="card-header border-bottom-0 border-light p-1">
+                <div class="row p-2">
+                    <div class="pr-2 pl-2">
+                        <img id="post-profile-pic" src="{{asset('storage/profile_pictures/'.$post->user->profile->profile_picture)}}">
+                    </div>
+                    <div>
+                        <strong>{{$post->user->fname . ' ' . $post->user->lname}}</strong>
+                    </div>
+                    <div class="col order-last">
+                        <span id="post-option-{{$post->id}}" class="btn float-right post-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fas fa-ellipsis-h"></i>
+                            <span class="caret"></span>
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="post-option-{{$post->id}}">
+                            <span class="dropdown-item btn text-light bg-dark" onclick="showEditPost({{$post->id}})">Edit
+                            </span>
+                            <span class="dropdown-item btn text-light bg-dark" onclick="deletePost({{$post->id}})">Delete
+                            </span>
+                        </div>        
+                    </div>
+                    
                 </div>
+                
+                
+                
             </div>
-            <div class="card-body border-light">
+            <div class="card-body border-light p-2">
                 {{$post->body}}
-                <div class="mt-3">
+                <div class="mt-3 text-center">
                     @if(!empty($post->images))
                         @foreach($post->images as $postImage)
                             <img class="img-fluid" src="{{asset('storage/post_images/' . $postImage->image)}}">
