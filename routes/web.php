@@ -48,3 +48,8 @@ Route::post('/profile/about/update', 'ProfilesController@update')->name('update 
 Route::post('/profile/profilepicture/update', 'ProfilesController@updateProfilePicture')->name('update profile picture');
 
 /**********************************************/
+
+
+/****************** FRIENDS ******************/
+Route::post('/{username}/add', 'FriendsController@add')->name('add friend');
+/**********************************************/

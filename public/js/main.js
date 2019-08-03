@@ -138,10 +138,12 @@ $(document).ready(function() {
 		});
 	});
 
+	// Trigger(click) the file input html element
 	$("#change-profile-picture-wrapper").click(function() {
 		$("#hidden-profile-picture").click();
 	});
 
+	// Call when the user successfully selected the file that he/she wants to upload.
 	$("#hidden-profile-picture").change(function() {
 		var data = new FormData();
 		var container = "#profile-picture";
@@ -163,9 +165,34 @@ $(document).ready(function() {
 		
 	});
 
+	$("#add-friend").click(function() {
+		var user = $(this).data('user');
+		axios.post('/'+ user +'/add', {
+		    username: user
+		  })
+		  .then(function (response) {
+		    if(response.data === 1){
+
+		    }else {
+		    	alert("Something went wrong. Please try again later.");
+		    }
+		  })
+		  .catch(function (error) {
+		    console.log(error.response.data.message);
+		  });
+	});
+
 	
 });
 
+
+/***
+ Get the url of the selected image
+
+ @params
+ 	input --> HTML input element container the selected profile picture.
+ 	container --> ID of the html element(img) to put the url of the image.
+**/
 function readURL(input, container) {
 	console.log();
   if (input.files && input.files[0]) {

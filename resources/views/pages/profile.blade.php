@@ -51,17 +51,38 @@
                         @endif
                         
                             @if($user->id === auth()->user()->id)
-                                <span class="btn mr-2"><i class="fas fa-pencil-alt"></i> Edit Profile</span>
+                                <span class="btn mr-2">
+                                    <i class="fas fa-pencil-alt"></i> Edit Profile
+                                </span>
                             @else
-                                <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
-                                <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
-                                <span class="btn"><i class="fas fa-ellipsis-h"></i></span>
+                                @if(!empty(App\FriendRequest::where([['sender', '=', auth()->user()->id], ['receiver', '=', $user->id]])->first()))
+                                    <span id="friend-request-sent" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                        Request Sent
+                                    </span>
+                                @else
+                                     <span id="add-friend" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                        <i class="fas fa-user-plus"></i> Add Friend
+                                    </span>
+                                @endif
+                                
+                                <span id="message" class="btn">
+                                    <i class="fab fa-facebook-messenger"></i> Message
+                                </span> 
+                                <span class="btn">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </span>
                             @endif
                     @else
                     <div id="other-profile-options">
-                        <span class="btn mr-2"><i class="fas fa-user-plus"></i> Add Friend</span> 
-                        <span class="btn"><i class="fab fa-facebook-messenger"></i> Message</span> 
-                        <span class="btn"><i class="fas fa-ellipsis-h"></i></span>       
+                        <span class="btn mr-2">
+                            <i class="fas fa-user-plus"></i> Add Friend
+                        </span> 
+                        <span class="btn">
+                            <i class="fab fa-facebook-messenger"></i> Message
+                        </span> 
+                        <span class="btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </span>       
                     @endif
                     
                     
