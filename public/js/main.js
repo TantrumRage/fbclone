@@ -186,7 +186,7 @@ $(document).ready(function() {
 	// Accept friend request
 	$(".accept-request").click(function() {
 		var user = $(this).data('user');
-		
+
 		axios.post('/'+ user +'/accept', {
 		    username: user
 		  })
@@ -202,6 +202,24 @@ $(document).ready(function() {
 		  });
 	});
 
+	// Cancel friend request
+	$("#cancel-request").click(function() {
+		var user = $(this).data('user');
+
+		axios.post('/'+ user +'/cancel', {
+		    username: user
+		  })
+		  .then(function (response) {
+		    if(response.data === 1){
+
+		    }else {
+		    	alert("Something went wrong. Please try again later.");
+		    }
+		  })
+		  .catch(function (error) {
+		    console.log(error.response.data.message);
+		  });
+	});
 	
 });
 

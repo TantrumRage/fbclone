@@ -56,8 +56,8 @@
                                 </span>
                             @else
                                 @if(!empty(App\FriendRequest::where([['sender', '=', auth()->user()->id], ['receiver', '=', $user->id]])->first()))
-                                    <span id="friend-request-sent" class="btn mr-2" data-user="{{$user->profile->nickname}}">
-                                        Request Sent
+                                    <span id="cancel-request" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                        Cancel Request
                                     </span>
                                 @elseif(!empty(App\FriendRequest::where([['receiver', '=', auth()->user()->id], ['sender', '=', $user->id]])->first()))
                                     <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">

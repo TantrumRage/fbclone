@@ -51,4 +51,20 @@ class FriendsController extends Controller
     		return 0;
     	}
     }
+
+    public function cancel(Request $request, $user) {
+    	if($user === $request->input('username')) {
+    		$receiver = Profile::where('nickname', $user)->first();
+    		$receiver = $receiver->user_id;
+    		
+    		$friends = FriendRequest::where([
+    			['sender', '=', auth()->user()->id],
+    			['receiver', '=', $receiver]
+    		])->delete();
+
+    		return 1;
+    	}else {
+    		return 0;
+    	}
+    }
 }
