@@ -52,4 +52,5 @@ Route::post('/profile/profilepicture/update', 'ProfilesController@updateProfileP
 
 /****************** FRIENDS ******************/
 Route::post('/{username}/add', 'FriendsController@add')->name('add friend');
+Route::post('/{username}/accept', 'FriendsController@accept')->name('accept friend request');
 /**********************************************/

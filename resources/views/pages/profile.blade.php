@@ -60,8 +60,12 @@
                                         Request Sent
                                     </span>
                                 @elseif(!empty(App\FriendRequest::where([['receiver', '=', auth()->user()->id], ['sender', '=', $user->id]])->first()))
-                                    <span id="friend-request-sent" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                    <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
                                         Accept Request
+                                    </span>
+                                @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
+                                    <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
+                                        Friends
                                     </span>
                                 @else
                                      <span id="add-friend" class="btn mr-2" data-user="{{$user->profile->nickname}}">

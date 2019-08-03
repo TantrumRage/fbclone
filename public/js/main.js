@@ -165,9 +165,29 @@ $(document).ready(function() {
 		
 	});
 
+	// Send friend request to someone
 	$("#add-friend").click(function() {
 		var user = $(this).data('user');
 		axios.post('/'+ user +'/add', {
+		    username: user
+		  })
+		  .then(function (response) {
+		    if(response.data === 1){
+
+		    }else {
+		    	alert("Something went wrong. Please try again later.");
+		    }
+		  })
+		  .catch(function (error) {
+		    console.log(error.response.data.message);
+		  });
+	});
+
+	// Accept friend request
+	$(".accept-request").click(function() {
+		var user = $(this).data('user');
+		
+		axios.post('/'+ user +'/accept', {
 		    username: user
 		  })
 		  .then(function (response) {
