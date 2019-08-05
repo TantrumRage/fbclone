@@ -46,54 +46,69 @@
                     @if(Auth::check())
                         @if($user->id === auth()->user()->id)
                             <div id="current-profile-options">
-                        @else
-                            <div id="other-profile-options">
-                        @endif
-                        
-                            @if($user->id === auth()->user()->id)
-                                <span class="btn mr-2">
+                                <span class="btn mr-2 profile-options">
                                     <i class="fas fa-pencil-alt"></i> Edit Profile
-                                </span>
-                            @else
+                                </span>    
+                        @else
+                            
                                 @if(!empty(App\FriendRequest::where([['sender', '=', auth()->user()->id], ['receiver', '=', $user->id]])->first()))
-                                    <span id="cancel-request" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                <div id="other-profile-options">
+                        
+                                    <span id="cancel-request" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
                                         Cancel Request
                                     </span>
                                 @elseif(!empty(App\FriendRequest::where([['receiver', '=', auth()->user()->id], ['sender', '=', $user->id]])->first()))
-                                    <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
-                                        Accept Request
-                                    </span>
+                                <div style="margin-top: 60%;">
+                        
+<div class="dropdown d-inline-block">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
+    Respond to request
+  </button>
+  <div class="dropdown-menu p-0 border-0" aria-labelledby="dropdownMenuButton" style="background: none;">
+    <span class="btn mr-2 mb-1 accept-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+        Accept Request
+    </span>
 
-                                    <span class="btn mr-2 decline-request" data-user="{{$user->profile->nickname}}">
-                                        Decline Request
-                                    </span>
+    <span class="btn mr-2 decline-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+        Decline Request
+    </span>
+  </div>
+</div>
+
+
+                                    
 
                                 @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
-                                    <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
+                                <div id="other-profile-options">
+                        
+                                    <span class="btn mr-2 accept-request profile-options" data-user="{{$user->profile->nickname}}">
                                         Friends
                                     </span>
                                 @else
-                                     <span id="add-friend" class="btn mr-2" data-user="{{$user->profile->nickname}}">
+                                <div id="other-profile-options">
+                        
+                                     <span id="add-friend" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
                                         <i class="fas fa-user-plus"></i> Add Friend
                                     </span>
                                 @endif
                                 
-                                <span id="message" class="btn">
+                                <span id="message" class="btn profile-options">
                                     <i class="fab fa-facebook-messenger"></i> Message
                                 </span> 
-                                <span class="btn">
+                                <span class="btn profile-options">
                                     <i class="fas fa-ellipsis-h"></i>
                                 </span>
-                            @endif
+                            
+                        @endif
                     @else
                     <div id="other-profile-options">
-                        <span class="btn mr-2">
+                        <span class="btn mr-2 profile-options">
                             <i class="fas fa-user-plus"></i> Add Friend
                         </span> 
-                        <span class="btn">
+                        <span class="btn profile-options">
                             <i class="fab fa-facebook-messenger"></i> Message
                         </span> 
-                        <span class="btn">
+                        <span class="btn profile-options">
                             <i class="fas fa-ellipsis-h"></i>
                         </span>       
                     @endif

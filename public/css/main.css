@@ -161,24 +161,24 @@
 	height: 75vh;
 }
 
+.profile-options{
+	background: #000000bf !important;
+	color: #f8f9fa !important;
+	border: 2px solid none;
+}
+
+.profile-options:hover{
+	background: none !important;
+	color: #000000bf !important;
+	border-color: #000000bf;
+}
+
 #other-profile-options{
 	margin-top: 70%;
 }
 
 #current-profile-options{
 	margin-top: 155%;
-}
-
-#current-profile-options span, #other-profile-options span{
-	background: #000000bf;
-	color: #f8f9fa;
-	border: 2px solid none;
-}
-
-#current-profile-options span:hover, #other-profile-options span:hover{
-	background: none;
-	color: #000000bf;
-	border-color: #000000bf;
 }
 
 .profile-sections{
