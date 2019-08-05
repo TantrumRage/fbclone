@@ -67,4 +67,20 @@ class FriendsController extends Controller
     		return 0;
     	}
     }
+
+    public function decline(Request $request, $user) {
+    	if($user === $request->input('username')) {
+    		$sender = Profile::where('nickname', $user)->first();
+    		$sender = $sender->user_id;
+    		
+    		$friends = FriendRequest::where([
+    			['receiver', '=', auth()->user()->id],
+    			['sender', '=', $sender]
+    		])->delete();
+
+    		return 1;
+    	}else {
+    		return 0;
+    	}
+    }
 }

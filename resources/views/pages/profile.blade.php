@@ -63,6 +63,11 @@
                                     <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
                                         Accept Request
                                     </span>
+
+                                    <span class="btn mr-2 decline-request" data-user="{{$user->profile->nickname}}">
+                                        Decline Request
+                                    </span>
+
                                 @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
                                     <span class="btn mr-2 accept-request" data-user="{{$user->profile->nickname}}">
                                         Friends
