@@ -53,4 +53,9 @@ class User extends Authenticatable
     public function postImages() {
         return $this->hasMany(PostImage::class, 'user_id');
     }
+    public function friends() {
+        return $this->belongsToMany(User::class, 'friends' , 'user_id', 'friend_id');
+    }
+
+
 }

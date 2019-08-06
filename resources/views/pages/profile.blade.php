@@ -137,7 +137,7 @@
                             <span class="btn text-light" onclick="getProfileAbout({{'"'.$user->profile->nickname.'"'}})">About</span>
                        </span>
                        <span class="p-2">
-                            <a class="btn text-light" href="/{{$user->profile->nickname}}/about">Friends ( 55 )</a>
+                            <a class="btn text-light" href="/{{$user->profile->nickname}}/about">Friends ( {{count($user->friends)}} )</a>
                             
                        </span>
                        <span class="p-2">
