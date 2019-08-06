@@ -239,6 +239,24 @@ $(document).ready(function() {
 		    console.log(error.response.data.message);
 		  });
 	});
+
+	$("#unfriend-btn").click(function() {
+		var user = $(this).data('user');
+
+		axios.post('/'+ user +'/unfriend', {
+		    username: user
+		  })
+		  .then(function (response) {
+		    if(response.data === 1){
+
+		    }else {
+		    	alert("Something went wrong. Please try again later.");
+		    }
+		  })
+		  .catch(function (error) {
+		    console.log(error.response.data.message);
+		  });
+	});
 	
 });
 

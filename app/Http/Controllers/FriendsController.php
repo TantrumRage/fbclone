@@ -83,4 +83,23 @@ class FriendsController extends Controller
     		return 0;
     	}
     }
+
+    public function unfriend(Request $request, $user) {
+    	if($user === $request->input('username')) {
+    		$friend = Profile::where('nickname', $user)->first();
+    		$friend = $friend->user_id;
+    		
+    		$friends = Friend::where([
+    			['user_id', '=', auth()->user()->id],
+    			['friend_id', '=', $friend]
+    		])->orWhere([
+    			['user_id', '=', $friend],
+    			['friend_id', '=', auth()->user()->id]
+    		])->delete();
+
+    		return 1;
+    	}else {
+    		return 0;
+    	}
+    }
 }
