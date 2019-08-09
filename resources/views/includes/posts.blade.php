@@ -1,7 +1,7 @@
 @foreach(App\Post::where('user_id', $user->id)->get()->reverse() as $post)
     <div class="col-12 mb-5">
-        <div class="card bg-dark border-light p-2">
-            <div class="card-header border-bottom-0 border-light p-1">
+        <div class="card bg-dark-gray border-light-gray p-2">
+            <div class="card-header border-bottom-0 border-light-gray p-1">
                 <div class="row p-2">
                     <div class="pr-2 pl-2">
                         <img id="post-profile-pic" src="{{asset('storage/profile_pictures/'.$post->user->profile->profile_picture)}}">
@@ -14,10 +14,10 @@
                             <i class="fas fa-ellipsis-h"></i>
                             <span class="caret"></span>
                         </span>
-                        <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="post-option-{{$post->id}}">
-                            <span class="dropdown-item btn text-light bg-dark" onclick="showEditPost({{$post->id}})">Edit
+                        <div class="dropdown-menu dropdown-menu-right bg-darker border-light-gray" aria-labelledby="post-option-{{$post->id}}">
+                            <span class="dropdown-item btn text-light bg-darker" onclick="showEditPost({{$post->id}})">Edit
                             </span>
-                            <span class="dropdown-item btn text-light bg-dark" onclick="deletePost({{$post->id}})">Delete
+                            <span class="dropdown-item btn text-light bg-darker" onclick="deletePost({{$post->id}})">Delete
                             </span>
                         </div>        
                     </div>
@@ -27,7 +27,7 @@
                 
                 
             </div>
-            <div class="card-body border-light p-2">
+            <div class="card-body border-light-gray p-2">
                 {{$post->body}}
                 <div class="mt-3 text-center">
                     @if(!empty($post->images))
@@ -41,7 +41,7 @@
             <div class="p-1 like-counter-container mb-1">
                 <span class="p-1 rounded-circle bg-primary" style="font-size: 10px"><i class="fas fa-thumbs-up"></i></span> <span class="like-counter">{{count($post->likes)}}</span>
             </div>
-            <div class="card-footer border-light post-buttons-container">
+            <div class="card-footer border-light-gray post-buttons-container">
                                
                 <div class="row">
                     @if(!empty(App\Like::where([
@@ -62,7 +62,7 @@
                     <div class="col-4 text-center p-0 pointer"><i class="fas fa-share"></i> Share</div>
                 </div>
             </div>
-            <div class="card-footer border-light">
+            <div class="card-footer border-light-gray">
                 <div class="mb-3 comments-container">
                     @foreach(App\Comment::where('post_id', $post->id)->get()->sortByDesc('created_at')->take(3)->sortBy('created_at') as $comment)
                     <div>
@@ -71,7 +71,7 @@
                     @endforeach   
                 </div>
                                 
-                <input class="form-control bg-dark comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
+                <input class="form-control bg-darker comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
             </div>
         </div>
     </div> 

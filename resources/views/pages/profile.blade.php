@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="container" class="container-fluid bg-dark text-light">
+<div id="container" class="container-fluid bg-darker text-light">
     <div class="row pt-5">
         <div id="profile-info-container" class="col-12 mt-3">
             <div class="row p-1 pl-4" id="change-profile-picture-container">
@@ -127,7 +127,7 @@
                     
                 </div>
             </div>
-            <div class="row bg-secondary">
+            <div class="row bg-dark-gray">
                 <div class="col-12">
                     <div class="row justify-content-center text-center">
                         <span class="p-2">
@@ -159,9 +159,9 @@
             <div>
                <div class="row mb-3">
                     <div class="col-12">
-                        <div class="card bg-dark border-light">
-                            <div class="card-header border-light">Intro</div>
-                            <div class="card-body border-light">
+                        <div class="card bg-dark-gray border-light-gray">
+                            <div class="card-header border-light-gray">Intro</div>
+                            <div class="card-body border-light-gray">
                                 <div class="d-flex">
                                     <i class="fas fa-graduation-cap pr-2"> </i>
                                     
@@ -187,9 +187,9 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <div class="card bg-dark border-light">
-                            <div class="card-header border-light">Photos</div>
-                            <div class="card-body border-light">
+                        <div class="card bg-dark-gray border-light-gray">
+                            <div class="card-header border-light-gray">Photos</div>
+                            <div class="card-body border-light-gray">
                                 @if(!empty($user->postImages))
                                     <div class="row">
                                         @foreach($user->postImages->reverse()->take(6) as $photo)
@@ -208,9 +208,9 @@
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <div class="card bg-dark border-light">
-                            <div class="card-header border-light">Friends</div>
-                            <div class="card-body border-light">
+                        <div class="card bg-dark-gray border-light-gray">
+                            <div class="card-header border-light-gray">Friends</div>
+                            <div class="card-body border-light-gray">
                                 <p class="text-center mb-0">No friends to show.</p>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                 <div class="card-header">
                     <span class="h4">About</span> 
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body bg-dark-gray">
                     <div class="card mb-3">
                         <div class="card-header font-weight-bold">
                             Work and Education

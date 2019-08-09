@@ -2,10 +2,23 @@
 	resize: none;
 }
 
+.bg-dark-gray{
+	background: #36393e !important;
+}
+
+.border-light-gray{
+	border-color: #2e2f30;
+}
+
+.bg-darker{
+	background: #1e2124 !important;
+}
+
 #container{
 	min-height: 100vh !important;
 	padding-bottom: 20px;
 }
+
 .small-nav{
 	height: 42px;
 }

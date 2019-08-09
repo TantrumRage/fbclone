@@ -1,7 +1,7 @@
-<div class="card bg-dark border-light mb-4">
-                <div class="card-header border-light"><strong>Create Post</strong></div>
-                <div class="card-body border-light">
-                    <textarea id="post-body" class="bg-dark text-white w-100 p-2" placeholder="What's on your mind, {{auth()->user()->fname}}?" required></textarea>
+<div class="card bg-dark-gray border-light-gray mb-4">
+                <div class="card-header border-light-gray"><strong>Create Post</strong></div>
+                <div class="card-body border-light-gray">
+                    <textarea id="post-body" class="bg-dark-gray text-white w-100 p-2" placeholder="What's on your mind, {{auth()->user()->fname}}?" required></textarea>
                     <div>
                         <button id="post-img-btn" class="btn btn-outline-success">Add Image</button>
                         <form runat="server" class="hidden-post-img-btn-container">

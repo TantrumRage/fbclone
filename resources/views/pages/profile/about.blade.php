@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="container" class="container-fluid bg-dark text-light">
+<div id="container" class="container-fluid bg-darker text-light">
     <div class="row pt-5">
         <div id="profile-info-container" class="col-12 mt-3">
             <div id="cover-photo" class="row">
@@ -52,7 +52,7 @@
                 <div class="card-header">
                     <span class="h4">About</span> 
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body bg-dark-gray">
                     <div class="card mb-3">
                         <div class="card-header font-weight-bold">
                             Work and Education
