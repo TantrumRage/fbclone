@@ -71,7 +71,7 @@
                     @endforeach   
                 </div>
                                 
-                <input class="form-control bg-darker comment-box text-light" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
+                <input class="form-control bg-darker comment-box text-light border-light-gray" type="text" name="comment" placeholder="Type a comment..." data-postkey="{{$post->id}}">
             </div>
         </div>
     </div> 

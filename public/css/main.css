@@ -7,7 +7,7 @@
 }
 
 .border-light-gray{
-	border-color: #2e2f30;
+	border-color: #2e2f30 !important;
 }
 
 .bg-darker{
@@ -17,6 +17,10 @@
 #container{
 	min-height: 100vh !important;
 	padding-bottom: 20px;
+}
+
+#main-nav{
+	border-bottom: 1px solid;
 }
 
 .small-nav{

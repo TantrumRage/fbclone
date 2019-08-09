@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-darker pl-md-5 pr-md-5 pl-0 pr-0 border-bottom border-light-gray">
+<nav id="main-nav" class="navbar navbar-expand-md navbar-dark fixed-top bg-darker pl-md-5 pr-md-5 pl-0 pr-0 border-light-gray">
   <a class="navbar-brand d-none d-md-block" href="{{ url('/') }}">
     {{ config('app.name', 'fbclone') }}
   </a>  
