@@ -288,7 +288,15 @@ $(document).ready(function() {
 		  });
 	});
 
+	// Unfriend
 	$(document).on('click', '#unfriend-btn', function() {
+		$("#friend-option").addClass("disabled");
+		$("#friend-option").prepend(
+			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
+			  '<span class="sr-only">Loading...</span>' +
+			'</div>'
+		);
+
 		var user = $(this).data('user');
 
 		axios.post('/'+ user +'/unfriend', {
