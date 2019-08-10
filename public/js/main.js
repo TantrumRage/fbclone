@@ -215,7 +215,7 @@ $(document).ready(function() {
                                 +'Friends'
                             +'</button>'
                             +'<div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">'
-                                +'<span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">'
+                                +'<span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="'+user+'">'
                                     +'Unfriend'
                             +'</span>'
 
@@ -248,7 +248,7 @@ $(document).ready(function() {
 		    if(response.data === 1){
 		    	$("#main-profile-option-container").html(
                         '<span id="add-friend" class="btn mr-2 profile-options" data-user="'+user+'">' +
-                            'Add Friend'
+                            '<i class="fas fa-user-plus"></i> Add Friend'
 		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
@@ -277,7 +277,7 @@ $(document).ready(function() {
 		    if(response.data === 1){
 		    	$("#main-profile-option-container").html(
                         '<span id="add-friend" class="btn mr-2 profile-options" data-user="'+user+'">' +
-                            'Add Friend'
+                            '<i class="fas fa-user-plus"></i> Add Friend'
 		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
@@ -288,7 +288,7 @@ $(document).ready(function() {
 		  });
 	});
 
-	$("#unfriend-btn").click(function() {
+	$(document).on('click', '#unfriend-btn', function() {
 		var user = $(this).data('user');
 
 		axios.post('/'+ user +'/unfriend', {
@@ -296,7 +296,10 @@ $(document).ready(function() {
 		  })
 		  .then(function (response) {
 		    if(response.data === 1){
-
+		    	$("#main-profile-option-container").html(
+                        '<span id="add-friend" class="btn mr-2 profile-options" data-user="'+user+'">' +
+                            '<i class="fas fa-user-plus"></i> Add Friend'
+		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
 		    }

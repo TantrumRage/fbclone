@@ -81,17 +81,19 @@
 
                                 @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
                                 <div id="other-profile-options">
-                                     <div class="dropdown d-inline-block">
-                                      <button class="btn dropdown-toggle mr-2 profile-options" type="button" id="friend-option" data-toggle="dropdown" data-user="{{$user->profile->nickname}}" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
-                                        Friends
-                                      </button>
-                                      <div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">
-                                        <span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">
-                                            Unfriend
-                                        </span>
+                                    <span id="main-profile-option-container">
+                                        <div class="dropdown d-inline-block">
+                                          <button class="btn dropdown-toggle mr-2 profile-options" type="button" id="friend-option" data-toggle="dropdown" data-user="{{$user->profile->nickname}}" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
+                                            Friends
+                                          </button>
+                                          <div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">
+                                            <span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                                Unfriend
+                                            </span>
 
-                                      </div>
-                                    </div>                       
+                                          </div>
+                                        </div> 
+                                    </span>                      
                                     
                                 @else
                                 <div id="other-profile-options">
