@@ -44,7 +44,7 @@
             <div class="card-footer border-light-gray post-buttons-container">
                                
                 <div class="row">
-                    @if(!empty(App\Like::where([
+                    @if(Auth::check() && !empty(App\Like::where([
                             ['post_id', '=', $post->id],
                             ['user_id', '=', auth()->user()->id],
                         ])->first()))
