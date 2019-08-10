@@ -62,21 +62,22 @@
                                     </span>
                                 @elseif(!empty(App\FriendRequest::where([['receiver', '=', auth()->user()->id], ['sender', '=', $user->id]])->first()))
                                 <div style="margin-top: 60%;">
-                        
-                                    <div class="dropdown d-inline-block">
-                                      <button class="btn btn-secondary dropdown-toggle" type="button" id="accept-decline-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
-                                        Respond to request
-                                      </button>
-                                      <div class="dropdown-menu p-0 border-0" aria-labelledby="accept-decline-dropdown" style="background: none;">
-                                        <span class="btn mr-2 mb-1 accept-request profile-options w-100" data-user="{{$user->profile->nickname}}">
-                                            Accept Request
-                                        </span>
+                                    <span id="main-profile-option-container">
+                                        <div class="dropdown d-inline-block">
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="accept-decline-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
+                                            Respond to request
+                                          </button>
+                                          <div class="dropdown-menu p-0 border-0" aria-labelledby="accept-decline-dropdown" style="background: none;">
+                                            <span class="btn mr-2 mb-1 accept-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                                Accept Request
+                                            </span>
 
-                                        <span class="btn mr-2 decline-request profile-options w-100" data-user="{{$user->profile->nickname}}">
-                                            Decline Request
-                                        </span>
-                                      </div>
-                                    </div>
+                                            <span class="btn mr-2 decline-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                                Decline Request
+                                            </span>
+                                          </div>
+                                        </div>
+                                    </span>
 
                                 @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
                                 <div id="other-profile-options">

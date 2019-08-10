@@ -193,15 +193,28 @@ $(document).ready(function() {
 	});
 
 	// Accept friend request
-	$(".accept-request").click(function() {
+	$(document).on('click', '.accept-request', function() {		
 		var user = $(this).data('user');
 
 		axios.post('/'+ user +'/accept', {
 		    username: user
 		  })
 		  .then(function (response) {
+		  	
 		    if(response.data === 1){
+		    	$("#main-profile-option-container").html(
+                        '<div class="dropdown d-inline-block">'
+                            +'<button class="btn dropdown-toggle mr-2 profile-options" type="button" id="friend-option" data-toggle="dropdown" data-user="{{$user->profile->nickname}}" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">'
+                                +'Friends'
+                            +'</button>'
+                            +'<div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">'
+                                +'<span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">'
+                                    +'Unfriend'
+                            +'</span>'
 
+                            +'</div>'
+                        +'</div>' 
+		    	);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
 		    }
