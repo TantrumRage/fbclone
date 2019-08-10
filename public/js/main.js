@@ -260,7 +260,7 @@ $(document).ready(function() {
 	});
 
 	// Decline friend request
-	$(".decline-request").click(function() {
+	$(document).on('click', '.decline-request', function() {
 		var user = $(this).data('user');
 
 		axios.post('/'+ user +'/decline', {
@@ -268,7 +268,10 @@ $(document).ready(function() {
 		  })
 		  .then(function (response) {
 		    if(response.data === 1){
-
+		    	$("#main-profile-option-container").html(
+                        '<span id="add-friend" class="btn mr-2 profile-options" data-user="'+user+'">' +
+                            'Add Friend'
+		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
 		    }
