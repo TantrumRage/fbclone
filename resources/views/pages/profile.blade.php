@@ -44,6 +44,8 @@
                 </div>
                 <div class="ml-auto pr-3">
                     @if(Auth::check())
+                        
+                        
                         @if($user->id === auth()->user()->id)
                             <div id="current-profile-options">
                                 <span class="btn mr-2 profile-options">
@@ -53,53 +55,52 @@
                             
                                 @if(!empty(App\FriendRequest::where([['sender', '=', auth()->user()->id], ['receiver', '=', $user->id]])->first()))
                                 <div id="other-profile-options">
-                        
-                                    <span id="cancel-request" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
-                                        Cancel Request
+                                    <span id="main-profile-option-container">
+                                        <span id="cancel-request" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
+                                            Cancel Request
+                                        </span>
                                     </span>
                                 @elseif(!empty(App\FriendRequest::where([['receiver', '=', auth()->user()->id], ['sender', '=', $user->id]])->first()))
                                 <div style="margin-top: 60%;">
                         
-<div class="dropdown d-inline-block">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="accept-decline-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
-    Respond to request
-  </button>
-  <div class="dropdown-menu p-0 border-0" aria-labelledby="accept-decline-dropdown" style="background: none;">
-    <span class="btn mr-2 mb-1 accept-request profile-options w-100" data-user="{{$user->profile->nickname}}">
-        Accept Request
-    </span>
+                                    <div class="dropdown d-inline-block">
+                                      <button class="btn btn-secondary dropdown-toggle" type="button" id="accept-decline-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
+                                        Respond to request
+                                      </button>
+                                      <div class="dropdown-menu p-0 border-0" aria-labelledby="accept-decline-dropdown" style="background: none;">
+                                        <span class="btn mr-2 mb-1 accept-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                            Accept Request
+                                        </span>
 
-    <span class="btn mr-2 decline-request profile-options w-100" data-user="{{$user->profile->nickname}}">
-        Decline Request
-    </span>
-  </div>
-</div>
-
-
-                                    
+                                        <span class="btn mr-2 decline-request profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                            Decline Request
+                                        </span>
+                                      </div>
+                                    </div>
 
                                 @elseif(!empty(App\Friend::where([['user_id', '=', auth()->user()->id], ['friend_id', '=', $user->id]])->first()))
                                 <div id="other-profile-options">
- <div class="dropdown d-inline-block">
-  <button class="btn dropdown-toggle mr-2 profile-options" type="button" id="friend-option" data-toggle="dropdown" data-user="{{$user->profile->nickname}}" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
-    Friends
-  </button>
-  <div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">
-    <span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">
-        Unfriend
-    </span>
+                                     <div class="dropdown d-inline-block">
+                                      <button class="btn dropdown-toggle mr-2 profile-options" type="button" id="friend-option" data-toggle="dropdown" data-user="{{$user->profile->nickname}}" aria-haspopup="true" aria-expanded="false" style="background: #000000bf;">
+                                        Friends
+                                      </button>
+                                      <div class="dropdown-menu p-0 border-0" aria-labelledby="friend-option" style="background: none;">
+                                        <span id="unfriend-btn" class="btn mr-2 mb-1 profile-options w-100" data-user="{{$user->profile->nickname}}">
+                                            Unfriend
+                                        </span>
 
-  </div>
-</div>                       
+                                      </div>
+                                    </div>                       
                                     
                                 @else
                                 <div id="other-profile-options">
-                        
-                                     <span id="add-friend" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
-                                        <i class="fas fa-user-plus"></i> Add Friend
+                                    <span id="main-profile-option-container">
+                                         <span id="add-friend" class="btn mr-2 profile-options" data-user="{{$user->profile->nickname}}">
+                                            <i class="fas fa-user-plus"></i> Add Friend
+                                        </span>
                                     </span>
                                 @endif
-                                
+
                                 <span id="message" class="btn profile-options">
                                     <i class="fab fa-facebook-messenger"></i> Message
                                 </span> 

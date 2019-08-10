@@ -165,15 +165,18 @@ $(document).ready(function() {
 		
 	});
 
-	// Send friend request to someone
-	$("#add-friend").click(function() {
+	// Send friend request
+	$(document).on('click', '#add-friend', function() {
 		var user = $(this).data('user');
 		axios.post('/'+ user +'/add', {
 		    username: user
 		  })
 		  .then(function (response) {
 		    if(response.data === 1){
-
+		    	$("#main-profile-option-container").html(
+                        '<span id="cancel-request" class="btn mr-2 profile-options" data-user="'+user+'">' +
+                            'Cancel Request'
+		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
 		    }
@@ -203,7 +206,7 @@ $(document).ready(function() {
 	});
 
 	// Cancel friend request
-	$("#cancel-request").click(function() {
+	$(document).on('click', '#cancel-request', function() {
 		var user = $(this).data('user');
 
 		axios.post('/'+ user +'/cancel', {
@@ -211,7 +214,10 @@ $(document).ready(function() {
 		  })
 		  .then(function (response) {
 		    if(response.data === 1){
-
+		    	$("#main-profile-option-container").html(
+                        '<span id="add-friend" class="btn mr-2 profile-options" data-user="'+user+'">' +
+                            'Add Friend'
+		    		);
 		    }else {
 		    	alert("Something went wrong. Please try again later.");
 		    }
