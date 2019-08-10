@@ -167,6 +167,12 @@ $(document).ready(function() {
 
 	// Send friend request
 	$(document).on('click', '#add-friend', function() {
+		$(this).addClass("disabled");
+		$(this).prepend(
+			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
+			  '<span class="sr-only">Loading...</span>' +
+			'</div>'
+		);
 		var user = $(this).data('user');
 		axios.post('/'+ user +'/add', {
 		    username: user
