@@ -11,9 +11,44 @@
     <a class="nav-link text-center text-light w-100" href="{{ url('/') }}"><i class="fas fa-home"></i></a>
   </li>
 
-  <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
-    <a class="nav-link text-center text-light w-100" href="#"><i class="fas fa-user-friends"></i></a>
+  <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm pointer">
+    <div class="dropdown">
+      <a id="showFriendRequests" class="nav-link text-center text-light w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-friends"></i>
+        </button>  
+      </a>
+      
+      <div class="dropdown-menu bg-darker" aria-labelledby="showFriendRequests" style="width: 350px;">
+        @if(count(auth()->user()->friendRequests) != 0)
+          @foreach(auth()->user()->friendRequests as $request)
+            <span class="dropdown-item text-light">
+              <div class="row">
+                <div class="col-6">
+                  {{$request->user->fname}} {{$request->user->lname}}
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-6 pr-1 text-right">
+                      <button class="btn btn-sm btn-primary accept-request" data-user="{{$request->user->profile->nickname}}">Accept</button>
+                    </div>
+                    <div class="col-6 pl-1">
+                      <button class="btn btn-sm btn-primary decline-request" data-user="{{$request->user->profile->nickname}}">Decline</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          @endforeach
+        @else
+          <div class="text-light text-center">
+            You have no friend requests.
+          </div>
+        @endif
+      </div>
+    </div>  
   </li>
+
+  
 
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
     <a class="nav-link text-center text-light w-100" href="#"><i class="fab fa-facebook-messenger"></i></a>
@@ -63,8 +98,17 @@
             <a class="nav-link text-center" href="/">Home</a>
           </li>
 
-          <li class="nav-item d-none d-md-block custom-nav-items-md">
-            <a class="nav-link text-center" href="#"><i class="fas fa-user-friends"></i></a>
+          <li class="nav-item d-none d-md-block custom-nav-items-md pointer">
+            <div class="dropdown">
+              <a id="showFriendRequests" class="nav-link text-center text-light w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user-friends"></i>
+                </button>  
+              </a>
+              
+              <div class="dropdown-menu" aria-labelledby="showFriendRequests">
+                <a class="dropdown-item" href="#">Action</a>
+              </div>
+            </div>  
           </li>
 
           <li class="nav-item d-none d-md-block custom-nav-items-md">

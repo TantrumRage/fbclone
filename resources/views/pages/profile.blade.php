@@ -7,6 +7,7 @@
         <div id="profile-info-container" class="col-12 mt-3">
             <div class="row p-1 pl-4" id="change-profile-picture-container">
                 @if(Auth::check())
+
                     @if($user->id === auth()->user()->id)
                         <input id="hidden-profile-picture" type="file" name="hidden-profile-picture" class="d-none">
                         <div class="img-fluid pointer" id="change-profile-picture-wrapper">
