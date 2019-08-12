@@ -105,8 +105,32 @@
                 </button>  
               </a>
               
-              <div class="dropdown-menu" aria-labelledby="showFriendRequests">
-                <a class="dropdown-item" href="#">Action</a>
+              <div class="dropdown-menu bg-darker" aria-labelledby="showFriendRequests" style="width: 350px; position: absolute; will-change: transform; transform: translate3d(-310px, 10px, 0px);">
+                @if(count(auth()->user()->friendRequests) != 0)
+                  @foreach(auth()->user()->friendRequests as $request)
+                    <span class="dropdown-item text-light">
+                      <div class="row">
+                        <div class="col-6">
+                          {{$request->user->fname}} {{$request->user->lname}}
+                        </div>
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-6 pr-1 text-right">
+                              <button class="btn btn-sm btn-primary accept-request" data-user="{{$request->user->profile->nickname}}">Accept</button>
+                            </div>
+                            <div class="col-6 pl-1">
+                              <button class="btn btn-sm btn-primary decline-request" data-user="{{$request->user->profile->nickname}}">Decline</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+                  @endforeach
+              @else
+                <div class="text-light text-center">
+                  You have no friend requests.
+                </div>
+              @endif
               </div>
             </div>  
           </li>
