@@ -168,10 +168,17 @@ $(document).ready(function() {
 	// Show messages overlay
 	$(".messages-btn").click(function() {
 		if($("#messages-overlay").length){
-			
+			$("#messages-overlay").show("slow");
 		}else 
 			$("#messages-overlay-container").append(
-				 '<div id="messages-overlay" class="bg-light">'
+				 '<div id="messages-overlay" class="bg-dark">'
+			   +     '<div class="row border-light-gray p-1" style="border-bottom: 1px solid">'
+			   +         '<div class="col-12 text-right p-2">'
+			   +             '<span id="hide-messages-overlay" class="p-3 pointer">'
+			   +                 '<i class="fas fa-times-circle text-light"></i>'
+			   +             '</span>'
+			   +         '</div>'
+			   +     '</div>'
 			   +     '<div class="row">'
 			   +         '<div class="col-4">'
 			                
@@ -182,9 +189,13 @@ $(document).ready(function() {
 			   +     '</div>'
 			   + '</div>'
 			);
-			console.log($("#messages-overlay").length);
 			$("#messages-overlay").show("slow");
 			//console.log($("#messages-overlay-container").length);
+	});
+
+	// Hide messages overlay
+	$(document).on('click', '#hide-messages-overlay', function() {
+		$("#messages-overlay").hide("slow");
 	});
 
 	// Send friend request
