@@ -51,7 +51,7 @@
   
 
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
-    <a class="nav-link text-center text-light w-100" href="#"><i class="fab fa-facebook-messenger"></i></a>
+    <a class="messages-btn pointer nav-link text-center text-light w-100"><i class="fab fa-facebook-messenger"></i></a>
   </li>
 
   <li class="nav-item d-sm-block d-md-none col-2 p-0 custom-nav-items-sm">
@@ -136,7 +136,7 @@
           </li>
 
           <li class="nav-item d-none d-md-block custom-nav-items-md">
-            <a class="nav-link text-center" href="#"><i class="fab fa-facebook-messenger"></i></a>
+            <a class="messages-btn nav-link text-center pointer"><i class="fab fa-facebook-messenger"></i></a>
           </li>
 
           <li class="nav-item d-none d-md-block custom-nav-items-md">

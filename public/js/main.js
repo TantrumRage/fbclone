@@ -165,6 +165,28 @@ $(document).ready(function() {
 		
 	});
 
+	// Show messages overlay
+	$(".messages-btn").click(function() {
+		if($("#messages-overlay").length){
+			
+		}else 
+			$("#messages-overlay-container").append(
+				 '<div id="messages-overlay" class="bg-light">'
+			   +     '<div class="row">'
+			   +         '<div class="col-4">'
+			                
+			   +         '</div>'
+			   +         '<div class="col-8">'
+			                
+			   +         '</div>'
+			   +     '</div>'
+			   + '</div>'
+			);
+			console.log($("#messages-overlay").length);
+			$("#messages-overlay").show("slow");
+			//console.log($("#messages-overlay-container").length);
+	});
+
 	// Send friend request
 	$(document).on('click', '#add-friend', function() {
 		$(this).addClass("disabled");
@@ -316,7 +338,7 @@ $(document).ready(function() {
 		    console.log(error.response.data.message);
 		  });
 	});
-	
+
 });
 
 

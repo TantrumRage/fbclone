@@ -25,8 +25,12 @@
 </head>
 <body>
     <div id="app">
-        @include('includes.navbar')
 
+        <div id="messages-overlay-container">
+            
+        </div>
+
+        @include('includes.navbar')
         <main class="">
             @yield('content')
         </main>
@@ -38,6 +42,7 @@
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </body>
 
 </html>
