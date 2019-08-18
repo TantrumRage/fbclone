@@ -1,3 +1,7 @@
+*::-webkit-scrollbar{
+	width: 5px;
+	background: none;
+}
 #post-body {
 	resize: none;
 }
@@ -237,7 +241,7 @@
 }
 
 #messages-overlay-container{
-	z-index: 9999;
+	z-index: 9998;
 	position: fixed;
 }
 
@@ -248,4 +252,51 @@
 	right: 0;
 	top: 0;
 	position: fixed;
+}
+
+#messenger-search-bar{
+	border-radius: 20px;
+	height: 45px;
+}
+
+.contacts-container{
+	
+}
+
+.contact-img{
+	height: 50px;
+	width: 50px;
+}
+
+.user-status{
+	height: 13px;
+	width: 13px;
+}
+
+.contact-message-container div{
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.message-container{
+	border-radius: 23px;
+	width: fit-content !important;
+}
+
+.sender{
+	background: #0084ff;
+	font-family: arial;
+	font-weight: 400;
+	letter-spacing: .5px;
+}
+
+.ellipsis{
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.overlay{
+	z-index: 9999;
 }
