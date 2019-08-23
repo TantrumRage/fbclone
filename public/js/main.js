@@ -168,34 +168,25 @@ $(document).ready(function() {
 	// Show messages overlay
 	$(".messages-btn").click(function() {
 		if($("#messages-overlay").length){
-			$("#messages-overlay").show("slow");
-		}else 
-			$("#messages-overlay-container").append(
-				 '<div id="messages-overlay" class="bg-dark">'
-			   +     '<div class="row border-light-gray p-1" style="border-bottom: 1px solid">'
-			   +         '<div class="col-12 text-right p-2">'
-			   +             '<span id="hide-messages-overlay" class="p-3 pointer">'
-			   +                 '<i class="fas fa-times-circle text-light"></i>'
-			   +             '</span>'
-			   +         '</div>'
-			   +     '</div>'
-			   +     '<div class="row">'
-			   +         '<div class="col-4">'
-			                
-			   +         '</div>'
-			   +         '<div class="col-8">'
-			                
-			   +         '</div>'
-			   +     '</div>'
-			   + '</div>'
-			);
-			$("#messages-overlay").show("slow");
+			$("#messages-overlay-container").show("slow");
+			//$("#messages-overlay").show("slow");
+		}else{
+			$("#messages-overlay-container").load("templates/messages/load");
+
+			    //$("#messages-overlay").show("slow");
+			    //$("#messages-overlay-container").show("slow");
+			if($("#messages-overlay").length){
+				//$("#messages-overlay").show("slow");
+				$("#messages-overlay-container").show("slow");
+			}
 			//console.log($("#messages-overlay-container").length);
+		}
 	});
 
 	// Hide messages overlay
 	$(document).on('click', '#hide-messages-overlay', function() {
-		$("#messages-overlay").hide("slow");
+		//$("#messages-overlay").hide("slow");
+		$("#messages-overlay-container").hide("slow");
 	});
 
 	// Send friend request

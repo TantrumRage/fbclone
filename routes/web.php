@@ -13,6 +13,12 @@
 
 Auth::routes();
 
+/****************** TEMPLATES *******************/
+Route::get('templates/messages/load', function() {
+	return view('templates/messages');
+});
+/********************************************/
+
 /****************** PAGES *******************/
 Route::get('/', "PagesController@index")->middleware('auth');
 
