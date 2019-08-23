@@ -7,10 +7,10 @@
                     </div>
                 </div>
                 <div class="row h-100 d-flex">
-                    <div class="col-2 col-md-4 h-100 p-0 pr-2">
+                    <div class="col-3 col-md-4 h-100 p-0 pr-3 pb-4">
                         <div class="card h-100 ml-1 bg-darker rounded-0">
                             <div class="card-header row bg-darker border-0">
-                                <div class="col-12 col-md-2">
+                                <div class="col-12 text-center col-md-2 p-0 pr-md-3 pl-md-3">
                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
                                 </div>
 
@@ -31,7 +31,7 @@
                                     <input id="messenger-search-bar" class="form-control border-light-gray bg-dark p-3 text-light" type="text" placeholder="Search messenger...">
                                 </div>
                             </div>
-                            <div class="card-body p-1 mb-5 mt-2" style="height: 100vh; overflow-y: auto; padding-top: 120px;">
+                            <div class="card-body p-1 mt-2" style="height: 100vh; overflow-y: auto; padding-top: 120px;">
                                 <div class="contacts-container border-light-gray text-secondary p-2 row" style="border: 1px solid">
                                     <div class="col-12 col-md-3 text-center p-1">
                                         <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
@@ -288,7 +288,7 @@
                         </div>
                     </div>
 
-                    <div class="col-10 col-md-8 h-100 p-0">
+                    <div class="col-9 col-md-8 h-100 p-0">
                         <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
                             <div class="pt-1 pb-1 mb-3">
                                 <div class="col-10 col-md-8 overlay position-fixed bg-darker">
