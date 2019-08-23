@@ -14,8 +14,8 @@
                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
                                 </div>
 
-                                <div class="col-md-6 d-none d-md-block text-secondary m-auto">
-                                    <h3 class="font-weight-bold ml-3">Chats</h3>
+                                <div class="col-md-6 d-none d-md-block text-secondary">
+                                    <h3 class="font-weight-bold m-auto w-fit pl-2">Chats</h3>
                                 </div>
 
                                 <div class="col-md-2 m-auto">

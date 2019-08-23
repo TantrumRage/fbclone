@@ -7,6 +7,14 @@
 	background: #2e2f30;
 }
 
+.w-fit{
+	width: fit-content;
+}
+
+.h-fit{
+	height: fit-content;
+}
+
 #post-body {
 	resize: none;
 }
