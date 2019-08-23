@@ -7,7 +7,7 @@
                     </div>
                 </div>
                 <div class="row h-100 d-flex">
-                    <div class="col-2 col-md-4 h-100 p-0">
+                    <div class="col-2 col-md-4 h-100 p-0 pr-2">
                         <div class="card h-100 ml-1 bg-darker rounded-0">
                             <div class="card-header row bg-darker border-0">
                                 <div class="col-12 col-md-2">
