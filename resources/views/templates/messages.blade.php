@@ -14,16 +14,16 @@
                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
                                 </div>
 
-                                <div class="col-md-5 d-none d-md-block text-secondary m-auto">
-                                    <h3 class="font-weight-bold text-center">Chats</h3>
-                                </div>
-
-                                <div class="col-md-2 offset-1 m-auto">
-                                    <span class="h4 text-secondary d-none d-md-block"><i class="fas fa-cog"></i></span>
+                                <div class="col-md-6 d-none d-md-block text-secondary m-auto">
+                                    <h3 class="font-weight-bold ml-3">Chats</h3>
                                 </div>
 
                                 <div class="col-md-2 m-auto">
-                                    <span class="h4 text-secondary d-none d-md-block"><i class="fas fa-edit"></i></span>
+                                    <span class="m-auto h4 text-secondary d-none d-md-block"><i class="fas fa-cog"></i></span>
+                                </div>
+
+                                <div class="col-md-2 m-auto">
+                                    <span class="m-auto h4 text-secondary d-none d-md-block"><i class="fas fa-edit"></i></span>
                                 </div>
                             </div>
                             <div class="d-none d-md-block p-2 pr-3 pl-3 row">
@@ -291,7 +291,7 @@
                     <div class="col-9 col-md-8 h-100 p-0">
                         <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
                             <div class="pt-1 pb-1 mb-3">
-                                <div class="col-10 col-md-8 overlay position-fixed bg-darker">
+                                <div class="col-9 col-md-8 overlay position-fixed bg-darker">
                                         <div class="row card-header">
                                             <div class="col-8 ellipsis">
                                                 <div class="d-flex">
@@ -361,7 +361,7 @@
                                     </div>
                                 </div>
                               
-                                <div class="col-md-8 position-fixed overlay bg-darker" style="bottom: 0;">
+                                <div class="col-9 col-md-8 position-fixed overlay bg-darker" style="bottom: 0;">
                                     <div class="p-3 card-footer row">
                                         <input class="form-control border-light-gray bg-darker p-3 text-light" style="border: 1px solid;" type="text" name="" placeholder="Type a message...">
                                     </div>
