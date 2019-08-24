@@ -17,10 +17,15 @@
                                 <div class="col-md-6 d-none d-md-block text-secondary m-auto">
                                     <h3 class="font-weight-bold m-auto w-fit pl-2 pt-2">Chats</h3>
                                 </div>
-
-                                <div class="col-md-2 p-0">
-                                    <span class="w-fit p-2 h4 text-secondary d-none d-md-block m-auto"><i class="fas fa-cog"></i></span>
-                                </div>
+<div class="dropdown col-md-2 p-0">
+  <span id="messengerSettingDropdown" class="pointer w-fit p-2 h4 text-secondary d-none d-md-block m-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></span>
+  <div class="dropdown-menu bg-darker" aria-labelledby="messengerSettingDropdown">
+    <a class="dropdown-item text-light bg-darker" href="#">Action</a>
+    <a class="dropdown-item text-light bg-darker" href="#">Another action</a>
+    <a class="dropdown-item text-light bg-darker" href="#">Something else here</a>
+  </div>
+</div>
+                                    
 
                                 <div class="col-md-2 p-0 pl-1">
                                     <span class="m-auto w-fit p-2 h4 text-secondary d-none d-md-block"><i class="fas fa-edit"></i></span>
