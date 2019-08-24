@@ -7,8 +7,8 @@
                     </div>
                 </div>
                 <div class="row h-100 d-flex">
-                    <div class="col-3 col-md-4 h-100 p-0 pr-3 pb-4">
-                        <div class="card h-100 ml-1 bg-darker rounded-0">
+                    <div class="col-3 col-md-4 h-100 p-0 pb-4">
+                        <div class="card h-100 ml-1 bg-darker rounded-0 pr-4">
                             <div class="card-header row bg-darker border-0">
                                 <div class="col-12 text-center col-md-2 p-0 pr-md-3 pl-md-3">
                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
@@ -291,8 +291,8 @@
                     <div class="col-9 col-md-8 h-100 p-0">
                         <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
                             <div class="pt-1 pb-1 mb-3">
-                                <div class="col-9 col-md-8 overlay position-fixed bg-darker">
-                                        <div class="row card-header">
+                                <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
+                                        <div class="row card-header pl-0">
                                             <div class="col-8 ellipsis">
                                                 <div class="d-flex">
                                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
@@ -310,7 +310,7 @@
                                         </div>
                                 </div>
 
-                                <div class="row card-body bg-darker" style="height: 100vh; overflow-y: auto; padding-top: 100px; padding-bottom: 150px;">
+                                <div class="row card-body bg-darker pl-0" style="height: 100vh; overflow-y: auto; padding-top: 100px; padding-bottom: 150px;">
                                     <div class="col-9 offset-3">
                                         <div class="mt-3 mb-1 text-center text-secondary">
                                             JUL 11, 2019, 10:31 PM
@@ -361,7 +361,7 @@
                                     </div>
                                 </div>
                               
-                                <div class="col-9 col-md-8 position-fixed overlay bg-darker" style="bottom: 0;">
+                                <div class="col-9 col-md-8 position-fixed overlay bg-darker pl-0" style="bottom: 0;">
                                     <div class="p-3 card-footer row">
                                         <input class="form-control border-light-gray bg-darker p-3 text-light" style="border: 1px solid;" type="text" name="" placeholder="Type a message...">
                                     </div>
