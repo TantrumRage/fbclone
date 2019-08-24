@@ -14,16 +14,16 @@
                                     <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
                                 </div>
 
-                                <div class="col-md-6 d-none d-md-block text-secondary">
-                                    <h3 class="font-weight-bold m-auto w-fit pl-2">Chats</h3>
+                                <div class="col-md-6 d-none d-md-block text-secondary m-auto">
+                                    <h3 class="font-weight-bold m-auto w-fit pl-2 pt-2">Chats</h3>
                                 </div>
 
-                                <div class="col-md-2 m-auto">
-                                    <span class="m-auto h4 text-secondary d-none d-md-block"><i class="fas fa-cog"></i></span>
+                                <div class="col-md-2 p-0">
+                                    <span class="w-fit p-2 h4 text-secondary d-none d-md-block m-auto"><i class="fas fa-cog"></i></span>
                                 </div>
 
-                                <div class="col-md-2 m-auto">
-                                    <span class="m-auto h4 text-secondary d-none d-md-block"><i class="fas fa-edit"></i></span>
+                                <div class="col-md-2 p-0 pl-1">
+                                    <span class="m-auto w-fit p-2 h4 text-secondary d-none d-md-block"><i class="fas fa-edit"></i></span>
                                 </div>
                             </div>
                             <div class="d-none d-md-block p-2 pr-3 pl-3 row">
