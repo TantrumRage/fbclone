@@ -49,37 +49,34 @@
           </div>
           <div class="modal-body p-3">
             <div class="row pt-3 pb-3">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-5">
                     Account
                 </div>
-                <div class="col-7 col-sm-5">
+                <div class="col-12 col-sm-7">
                     {{auth()->user()->fname . ' ' . auth()->user()->lname}}
                 </div>
             </div>
             <div class="row pt-3 pb-3">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-5">
                     Active Status
                 </div>
-                <div class="col-8 col-sm-5">
-                    Show when you're active
-                </div>
-                <div class="col-4 col-sm-3">
-                    <button class="btn btn-small btn-primary">active</button>
+                <div class="col-12 col-sm-7">
+                    <input id="messenger-chathead-toggle" type="checkbox" name="messenger-chathead-toggle">Show when you're active
                 </div>
             </div>
             <div class="row pt-3 pb-3">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-5">
                     Chat Heads
                 </div>
-                <div class="col-8 col-sm-5">
+                <div class="col-12 col-sm-7">
                     <input id="messenger-chathead-toggle" type="checkbox" name="messenger-chathead-toggle">Enabled
                 </div>
             </div>
             <div class="row pt-3 pb-3">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-5">
                     Sounds
                 </div>
-                <div class="col-8 col-sm-5">
+                <div class="col-12 col-sm-7">
                     <input id="messenger-sound-toggle" type="checkbox" name="messenger-sound-toggle">Enabled
                 </div>
             </div>
