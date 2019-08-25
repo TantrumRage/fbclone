@@ -19,9 +19,9 @@
                                 </div>
 
                                 <div class="dropdown col-md-2 p-0">
-                                  <span id="messengerSettingDropdown" class="pointer w-fit p-2 h4 text-secondary d-none d-md-block m-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></span>
+                                  <span id="messenger-menu-dropdown" class="pointer w-fit p-2 h4 text-secondary d-none d-md-block m-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cog"></i></span>
                                   <div class="dropdown-menu bg-darker" aria-labelledby="messengerSettingDropdown">
-                                    <a id="messenger-settings-btn" class="dropdown-item text-light bg-darker" href="#">Settings</a>
+                                    <a id="messenger-settings-btn" class="dropdown-item text-light bg-darker" data-toggle="modal"  data-target="#messenger-settings-modal" href="#">Settings</a>
                                     <div class="dropdown-divider border-light-gray"></div>
                                     <a id="messenger-active-contacts-btn" class="dropdown-item text-light bg-darker" href="#">Active Contacts</a>
                                     <a id="messenger-unread-chats-btn" class="dropdown-item text-light bg-darker" href="#">Unread Chats</a>
