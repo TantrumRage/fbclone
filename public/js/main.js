@@ -440,18 +440,18 @@ function deletePost(postId) {
 function getProfileTimeline(user) {
 	window.history.replaceState({page: "profile"}, "Timeline", "/" + user);
 	$(".profile-sections").hide();
-	$("#timeline").show();
+	$("#timeline").css('display', 'flex');
 }
 
 // Show profile "about" without reloading the page
 function getProfileAbout(user) {
 	window.history.replaceState({page: "profile"}, "About", "/" + user + "/about");
 	$(".profile-sections").hide();
-	$("#about").show();
+	$("#about").css('display', 'flex');
 }
 
 function getProfilePhotos(user) {
 	window.history.replaceState({page: "profile"}, "Photos", "/" + user + "/photos");
 	$(".profile-sections").hide();
-	$("#photos").show();
+	$("#photos").css('display', 'flex');
 }

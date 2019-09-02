@@ -501,7 +501,7 @@
 <script>
     $("#container").ready(function() {
         $(".profile-sections").hide();
-        $("#{{$section}}").show(); 
+        $("#{{$section}}").css('display', 'flex'); 
     });
     
 </script>
