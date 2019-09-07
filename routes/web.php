@@ -17,6 +17,9 @@ Auth::routes();
 Route::get('templates/messages/load', function() {
 	return view('templates/messages');
 });
+Route::get('templates/messages/selected/load', function() {
+	return view('templates/messages_right');
+});
 /********************************************/
 
 /****************** PAGES *******************/
