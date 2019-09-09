@@ -173,8 +173,6 @@ $(document).ready(function() {
 		}else{
 			$("#messages-overlay-container").load("templates/messages/load");
 
-			    //$("#messages-overlay").show("slow");
-			    //$("#messages-overlay-container").show("slow");
 			if($("#messages-overlay").length){
 				//$("#messages-overlay").show("slow");
 				$("#messages-overlay-container").show("slow");
@@ -189,13 +187,18 @@ $(document).ready(function() {
 		$("#messages-overlay-container").hide("slow");
 	});
 
+	// Load messages for selected contact on messenger
+	$(document).on('click', '.contacts-container', function() {
+		$('#messenger-right-container').load('templates/messages/selected/load');
+	
+		$("#contact-name-right").html('hi');
+	});
+
 	// Send friend request
 	$(document).on('click', '#add-friend', function() {
 		$(this).addClass("disabled");
 		$(this).prepend(
-			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
-			  '<span class="sr-only">Loading...</span>' +
-			'</div>'
+			'<i class="fas fa-spinner fa-spin text-light mr-2"></i>'
 		);
 		var user = $(this).data('user');
 		axios.post('/'+ user +'/add', {
@@ -220,9 +223,7 @@ $(document).ready(function() {
 	$(document).on('click', '.accept-request', function() {	
 		$("#accept-decline-dropdown").addClass("disabled");
 		$("#accept-decline-dropdown").prepend(
-			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
-			  '<span class="sr-only">Loading...</span>' +
-			'</div>'
+			'<i class="fas fa-spinner fa-spin text-light mr-2"></i>'
 		);
 
 		var user = $(this).data('user');
@@ -259,9 +260,7 @@ $(document).ready(function() {
 	$(document).on('click', '#cancel-request', function() {
 		$(this).addClass("disabled");
 		$(this).prepend(
-			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
-			  '<span class="sr-only">Loading...</span>' +
-			'</div>'
+			'<i class="fas fa-spinner fa-spin text-light mr-2"></i>'
 		);
 		var user = $(this).data('user');
 
@@ -287,9 +286,7 @@ $(document).ready(function() {
 	$(document).on('click', '.decline-request', function() {
 		$("#accept-decline-dropdown").addClass("disabled");
 		$("#accept-decline-dropdown").prepend(
-			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
-			  '<span class="sr-only">Loading...</span>' +
-			'</div>'
+			'<i class="fas fa-spinner fa-spin text-light mr-2"></i>'
 		);
 
 		var user = $(this).data('user');
@@ -316,9 +313,7 @@ $(document).ready(function() {
 	$(document).on('click', '#unfriend-btn', function() {
 		$("#friend-option").addClass("disabled");
 		$("#friend-option").prepend(
-			'<div class="spinner-border spinner-border-sm mr-2" role="status">' +
-			  '<span class="sr-only">Loading...</span>' +
-			'</div>'
+			'<i class="fas fa-spinner fa-spin text-light mr-2"></i>'
 		);
 
 		var user = $(this).data('user');
