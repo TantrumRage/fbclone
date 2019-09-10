@@ -66,8 +66,8 @@
         <div id="messenger-right-spinner" class="d-none">
             <i class="fas fa-spinner fa-spin text-light m-auto fa-lg"></i>
         </div>
-        <div id="messenger-right-wrapper">
-            <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
+        <div id="messenger-right-wrapper" class="col-12 p-0">
+            <div class="card h-100 bg-darker rounded-0 position-fixed">
                 <div class="pt-1 pb-1 mb-3">
                     <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
                         <div class="row card-header pl-0">

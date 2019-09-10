@@ -17,9 +17,7 @@ Auth::routes();
 Route::get('templates/messages/load', function() {
 	return view('templates/messages');
 });
-Route::get('templates/messages/selected/load', function() {
-	return view('templates/messages_right');
-});
+
 /********************************************/
 
 /****************** PAGES *******************/
@@ -71,6 +69,8 @@ Route::post('/{username}/unfriend', 'FriendsController@unfriend')->name('unfrien
 
 /****************** MESSAGES ******************/
 
-Route::post('/messenger/messages/selected/get', 'MessagesController@getSelected')->name('get messages for selected contact');
+//Route::post('/messenger/messages/selected/get', 'MessagesController@getSelected')->name('get messages for selected contact');
+
+Route::get('templates/messages/selected/load/{username}', 'MessagesController@getSelected');
 
 /**********************************************/
