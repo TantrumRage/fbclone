@@ -169,21 +169,18 @@ $(document).ready(function() {
 	$(".messages-btn").click(function() {
 		if($("#messages-overlay").length){
 			$("#messages-overlay-container").show("slow");
-			//$("#messages-overlay").show("slow");
+			$("body").addClass('no-scroll');
 		}else{
-			$("#messages-overlay-container").load("templates/messages/load");
-
-			if($("#messages-overlay").length){
-				//$("#messages-overlay").show("slow");
+			$("#messages-overlay-container").load("templates/messages/load", function() {
+				$("body").addClass('no-scroll');
 				$("#messages-overlay-container").show("slow");
-			}
-			//console.log($("#messages-overlay-container").length);
+			});
 		}
 	});
 
 	// Hide messages overlay
 	$(document).on('click', '#hide-messages-overlay', function() {
-		//$("#messages-overlay").hide("slow");
+		$("body").removeClass('no-scroll');
 		$("#messages-overlay-container").hide("slow");
 	});
 

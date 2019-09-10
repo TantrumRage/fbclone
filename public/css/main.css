@@ -324,3 +324,9 @@
 	position: relative;
 	display: flex;
 }
+
+.no-scroll{
+	overflow: hidden;
+	height: 100vh;
+	padding-right: 15px;
+}
