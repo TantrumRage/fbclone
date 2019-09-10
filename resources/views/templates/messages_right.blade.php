@@ -1,12 +1,12 @@
-<div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
+<div id="messenger-right" class="card h-100 mr-1 bg-darker rounded-0 position-fixed d-none">
     <div class="pt-1 pb-1 mb-3">
         <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
             <div class="row card-header pl-0">
                 <div class="col-8 ellipsis">
                     <div class="d-flex">
-                        <img src="{{asset('storage/profile_pictures/')}}" class="contact-img rounded-circle" alt="">
+                        <img src="" class="contact-img contact-img-right rounded-circle" alt="">
                         <div class="ml-2 text-secondary">
-                            <span id="contact-name-right"><strong><h3 class="m-auto">Welcome to Messenger</h3></strong></span>
+                            <span><strong><h4 id="contact-name-right" class="m-auto"></h4></strong></span>
                             <br>
                             <span id="user-status-text"></span>
                         </div>
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-9 col-md-8 position-fixed overlay bg-darker pl-0" style="bottom: 0;">
             <div class="p-3 card-footer row">
                 <input class="form-control border-light-gray bg-darker p-3 text-light" style="border: 1px solid;" type="text" name="" placeholder="Type a message...">

@@ -41,7 +41,7 @@
 
                 @foreach(auth()->user()->conversations as $conversation)
 
-                <div class="contacts-container pointer border-light-gray text-secondary p-2 row" style="border: 1px solid">
+                <div class="contacts-container pointer border-light-gray text-secondary p-2 row" style="border: 1px solid" data-user="{{$conversation->contact->profile->nickname}}">
                     <div class="col-12 col-md-3 text-center p-1">
                         <img src="{{asset('storage/profile_pictures/'.$conversation->contact->profile->profile_picture)}}" class="contact-img rounded-circle">
                     </div>
@@ -63,18 +63,24 @@
     </div>
 
     <div id="messenger-right-container" class="col-9 col-md-8 h-100 p-0 bg-darker">
-        <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
-            <div class="pt-1 pb-1 mb-3">
-                <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
-                    <div class="row card-header pl-0">
-                        <div class="col-12 ellipsis">
-                            <div class="text-secondary">
-                                <h3 class="text-center">Welcome to Messenger</h3>
-                            </div>
-                        </div>       
+        <div id="messenger-right-spinner" class="d-none">
+            <i class="fas fa-spinner fa-spin text-light m-auto fa-lg"></i>
+        </div>
+        <div id="messenger-right-wrapper">
+            <div class="card h-100 mr-1 bg-darker rounded-0 position-fixed">
+                <div class="pt-1 pb-1 mb-3">
+                    <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
+                        <div class="row card-header pl-0">
+                            <div class="col-12 ellipsis">
+                                <div class="text-secondary">
+                                    <h3 class="text-center">Welcome to Messenger</h3>
+                                </div>
+                            </div>       
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </div>

@@ -66,3 +66,11 @@ Route::post('/{username}/cancel', 'FriendsController@cancel')->name('cancel frie
 Route::post('/{username}/decline', 'FriendsController@decline')->name('decline friend request');
 Route::post('/{username}/unfriend', 'FriendsController@unfriend')->name('unfriend');
 /**********************************************/
+
+
+
+/****************** MESSAGES ******************/
+
+Route::post('/messenger/messages/selected/get', 'MessagesController@getSelected')->name('get messages for selected contact');
+
+/**********************************************/

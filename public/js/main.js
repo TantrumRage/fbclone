@@ -189,9 +189,28 @@ $(document).ready(function() {
 
 	// Load messages for selected contact on messenger
 	$(document).on('click', '.contacts-container', function() {
-		$('#messenger-right-container').load('templates/messages/selected/load');
-	
-		$("#contact-name-right").html('hi');
+		var contactBtn = this;
+
+		$('#messenger-right-spinner').attr('style', 'display: flex !important;');
+		$('#messenger-right-wrapper').load('templates/messages/selected/load', function() {
+			axios.post('messenger/messages/selected/get', {
+			    contact: $(contactBtn).data('user'),
+			    //: 'Dave'
+			  })
+			  .then(function (response) {
+			    //console.log(response.data);
+				$('#contact-name-right').html(response.data.contact.name);
+				$('.contact-img-right').attr("src", 'storage/profile_pictures/' + response.data.contact.picture);
+				$('#messenger-right-spinner').attr('style', 'display: none !important;');
+				$('#messenger-right').attr("style", "display: block !important;");
+			  })
+			  .catch(function (error) {
+			    console.log(error.response.data.message);
+			  });
+		});
+
+		
+
 	});
 
 	// Send friend request
