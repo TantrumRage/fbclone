@@ -1,5 +1,5 @@
-<div id="messenger-right" class="card h-100 mr-1 bg-darker rounded-0 position-fixed d-none col-12">
-    <div class="pt-1 pb-1 mb-3 col-9 col-md-8">
+<div id="messenger-right" class="card h-100 mr-1 bg-darker rounded-0 d-none col-12 pl-0">
+    <div class="pt-1 pb-1 mb-3">
         <div class="col-9 col-md-8 overlay position-fixed bg-darker pl-0">
             <div class="row card-header pl-0">
                 <div class="col-8 ellipsis">
