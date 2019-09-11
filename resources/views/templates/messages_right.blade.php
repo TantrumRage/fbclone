@@ -27,7 +27,7 @@
                     <div class="mt-3 mb-1 text-center text-secondary">
                         <!--- INSERT DATE HERE --->
                     </div>
-                    <div class="p-3 mb-3 message-container sender ml-auto">
+                    <div class="p-3 mb-3 message-container current-user-message ml-auto">
                         {{$message->body}}
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                         <div class="col-2">
                             <img src="{{asset('storage/profile_pictures/'.auth()->user()->profile->profile_picture)}}" class="contact-img rounded-circle">
                         </div>
-                        <div class="col-10">
-                            <div class="p-3 mb-3 message-container sender">
+                        <div class="col-10 pl-0">
+                            <div class="p-3 mb-3 message-container other-user-message">
                                 {{$message->body}}
                             </div>
                         </div>

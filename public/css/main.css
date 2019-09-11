@@ -296,11 +296,20 @@
 	width: fit-content !important;
 }
 
-.sender{
-	background: #0084ff;
+.current-user-message, .other-user-message{
 	font-family: arial;
 	font-weight: 400;
 	letter-spacing: .5px;
+}
+
+.current-user-message{
+	background-color: rgb(0, 153, 255);
+	color: #1e2124;
+}
+
+.other-user-message{
+	background-color: rgba(111, 136, 160, 0.21);
+	color: #d4d4d6;
 }
 
 .ellipsis{
