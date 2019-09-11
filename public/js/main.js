@@ -187,12 +187,14 @@ $(document).ready(function() {
 	// Load messages for selected contact on messenger
 	$(document).on('click', '.contacts-container', function() {
 		var contactBtn = this;
+		$('.contacts-container').css('background-color','#1e2124');
 
 		$('#messenger-right-spinner').attr('style', 'display: flex !important;');
 		
 		$('#messenger-right-wrapper').load('templates/messages/selected/load/' + $(contactBtn).data('user'), function() {
 			$('#messenger-right-spinner').attr('style', 'display: none !important;');
 			$('#messenger-right').attr("style", "display: block !important;");
+			$(contactBtn).css('background-color','#36393e');
 		});
 		
 
