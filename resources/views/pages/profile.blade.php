@@ -499,10 +499,13 @@
 </div>
 
 <script>
-    $("#container").ready(function() {
-        $(".profile-sections").hide();
-        $("#{{$section}}").css('display', 'flex'); 
-    });
+    function showProfileSection() {
+        $("#profile-container").ready(function() {
+            $(".profile-sections").hide();
+            $("#{{$section}}").css('display', 'flex'); 
+        });
+    }
+    
     
 </script>
 @endsection

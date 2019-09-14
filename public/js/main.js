@@ -1,4 +1,13 @@
 $(document).ready(function() {
+	/***
+	 Show profile section
+	 Call after Jquery is loaded
+	***/
+
+	$("#profile-container").ready(function() {
+		showProfileSection();
+	});
+
 	// Show edit profile button
 	$(".profile-info").mouseenter(function() {
 		$("#edit-" + this.id).show();
